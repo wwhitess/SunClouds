@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:SunClouds"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <FontFamily x:Key="Jura">pack://application:,,,/Sources/#Jura</FontFamily>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/ThemeLib;component/Themes/FirstTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
