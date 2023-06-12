@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/ThemeLib;component/Themes/FirstTheme.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/ThemeLib;component/Themes/SecondTheme.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/ThemeLib;component/Themes/ThirdTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -34,5 +34,14 @@ namespace ThemeLib
                 Source = new System.Uri("/ThemeLib;component/Themes/SecondTheme.xaml", System.UriKind.Relative)
             });
         }
+
+        public static void ThirdTheme()
+        {
+            Application.Current.Resources.MergedDictionaries.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new System.Uri("/ThemeLib;component/Themes/ThirdTheme.xaml", System.UriKind.Relative)
+            });
+        }
     }
 }
