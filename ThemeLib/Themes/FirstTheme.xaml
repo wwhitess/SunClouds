@@ -58,17 +58,16 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="Transparent" BorderBrush="#FFF" BorderThickness="2">
+                    <Border Background="Transparent" BorderBrush="#87B6CA" BorderThickness="2">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="#FFF" />
+        <Setter Property="Background" Value="#87B6CA" />
+        <Setter Property="Foreground" Value="#87B6CA" />
         <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura" />
         <Setter Property="FontSize" Value="30" />
         <Setter Property="BorderThickness" Value="0" />
     </Style>
-
 </ResourceDictionary>
