@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <Style x:Key="GridBackgound" TargetType="Grid">
+    <Style x:Key="GridBackground" TargetType="Grid">
         <Setter Property="Grid.Background">
         <Setter.Value>
             <ImageBrush ImageSource="pack://application:,,,/SunClouds;component/Sources/Night.png"/>

@@ -37,7 +37,7 @@ namespace SunClouds
 
             if (curHour >= 0 && curHour < 4)
             {
-                //Ночная тема
+                CustomControl1.ThirdTheme();
             }
             else if (curHour >= 4 && curHour < 12)
             {
