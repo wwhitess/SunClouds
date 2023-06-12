@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SunClouds.Helpers;
+using SunClouds.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,13 @@ namespace SunClouds
         public Weather()
         {
             InitializeComponent();
+        }
+        public void getWeather(string city, string tempType)
+        {
+            var json = ApiHelper.Get(city, tempType);
+            var result = DerSerLib.jsonclass.JsonDeser<WeatherModel>(json);
+
+            testWeather.ItemsSource = new List<Main> { result.Main };
         }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ThemeLib;
+using DerSerLib;
 
 namespace SunClouds
 {
@@ -71,9 +72,11 @@ namespace SunClouds
             DragMove();
         }
   
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            Weather weather = new Weather();
+            weather.getWeather(SelectCity.Text, "");
+            weather.Show();
         }
     }
 }
