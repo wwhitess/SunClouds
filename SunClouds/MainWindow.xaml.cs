@@ -77,6 +77,11 @@ namespace SunClouds
             Weather weather = new Weather();
             weather.getWeather(SelectCity.Text, "");
             weather.Show();
+            Close();
+        }
+        private void ClearBox(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            SelectCity.Clear();
         }
     }
 }
