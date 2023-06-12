@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Sources\Day.png" />
     <None Remove="Sources\Jura-Regular.ttf" />
+    <None Remove="Sources\MorningEvening.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +20,7 @@
   <ItemGroup>
     <Resource Include="Sources\Day.png" />
     <Resource Include="Sources\Jura-Regular.ttf" />
+    <Resource Include="Sources\MorningEvening.png" />
   </ItemGroup>
 
 </Project>
