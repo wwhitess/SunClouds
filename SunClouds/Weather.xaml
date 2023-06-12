@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Weather" Height="450" Width="800">
     <Grid>
-        
+        <DataGrid x:Name="testWeather"/>
+
     </Grid>
 </Window>
