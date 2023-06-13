@@ -7,6 +7,47 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SettingsPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Ваш основной город:" Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Style="{DynamicResource TextBlock}"/>
 
-    <Grid/>
+        <TextBox Text="Город" GotKeyboardFocus="ClearBox" x:Name="SetCity" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>
+        <TextBlock Text="Избранные города:" Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="28" Style="{DynamicResource TextBlock}"/>
+        <Rectangle Style="{DynamicResource SetCity}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="10" Opacity="0.5"/>
+        <WrapPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="8">
+
+        </WrapPanel>
+        <TextBox Text="Название города" x:Name="AddCity" GotKeyboardFocus="ClearAddBox" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>
+        <Button Content="Добавить город" Style="{DynamicResource Button}" Grid.Row="6" Grid.Column="9" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
+        <TextBlock Text="Исчисление градусов:" Grid.Row="8"  Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Style="{DynamicResource TextBlock}"/>
+        <RibbonButton Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>
+        <RibbonButton Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>
+        <Button Content="Сохранить" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="10" Style="{DynamicResource Button}" FontSize="15"/>
+    </Grid>
 </Page>

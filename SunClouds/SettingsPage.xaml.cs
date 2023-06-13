@@ -23,12 +23,16 @@ namespace SunClouds
         public SettingsPage()
         {
             InitializeComponent();
-           // DefaultTextBox.text = SunClouds.Properties.Settings.Default.DefaultCity; установка значения в поле "основной город"
+            SetCity.Text = SunClouds.Properties.Settings.Default.DefaultCity;
         }
 
-        private void DefaultTextBox_LostFocus(object sender, RoutedEventArgs e)
+        private void ClearBox(object sender, KeyboardFocusChangedEventArgs e)
         {
-           // SunClouds.Properties.Settings.Default.DefaultCity = DefaultTextBox.Text;  Смена города по умолчанию
+            SetCity.Clear();
+        }
+        private void ClearAddBox(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            AddCity.Clear();
         }
     }
 }
