@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace SunClouds
 {
-    /// <summary>
-    /// Логика взаимодействия для Weather.xaml
-    /// </summary>
     public partial class Weather : Window
     {
         public Weather()
@@ -32,5 +29,28 @@ namespace SunClouds
 
             testWeather.ItemsSource = new List<Main> { result.Main };
         }
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+                WindowState = WindowState.Normal;
+            else
+                WindowState = WindowState.Maximized;
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
     }
 }
