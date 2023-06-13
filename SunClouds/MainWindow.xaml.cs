@@ -26,6 +26,8 @@ namespace SunClouds
 
             SystemEvents.TimeChanged += ThemeSelectTime;
 
+            SelectCity.Text = SunClouds.Properties.Settings.Default.DefaultCity;
+
             SelectTheme();
         }
         private void ThemeSelectTime(object sender, EventArgs e)
