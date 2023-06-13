@@ -31,7 +31,7 @@
             <ColumnDefinition Width="0.03*"/>
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="testWeather"/>
+        <DataGrid x:Name="testWeather" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3"/>
         <RichTextBox Background="#F8C5B4" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="3" Opacity="0.5"/>
         <Rectangle Fill="#F8C5B4" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3" Opacity="0.5"/>
         <Rectangle Fill="#F8C5B4" Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="3" Opacity="0.5"/>

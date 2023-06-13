@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace SunClouds
 {
     /// <summary>
-    /// Логика взаимодействия для Settings.xaml
+    /// Логика взаимодействия для WeatherPage.xaml
     /// </summary>
-    public partial class Settings : Page
+    public partial class WeatherPage : Page
     {
-        public Settings()
+        public WeatherPage()
         {
             InitializeComponent();
         }
