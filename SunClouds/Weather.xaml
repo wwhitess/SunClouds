@@ -31,18 +31,20 @@
             <ColumnDefinition Width="0.03*"/>
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="testWeather" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3"/>
-        <RichTextBox Background="#F8C5B4" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="3" Opacity="0.5"/>
-        <Rectangle Fill="#F8C5B4" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3" Opacity="0.5"/>
-        <Rectangle Fill="#F8C5B4" Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="3" Opacity="0.5"/>
+        <Grid.Resources>
+            <Style x:Key="NoNavigationFrameStyle" TargetType="Frame">
+                <Setter Property="NavigationUIVisibility" Value="Hidden" />
+            </Style>
+        </Grid.Resources>
+        <Frame Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="6" x:Name="Frame" Style="{StaticResource NoNavigationFrameStyle}"/>
         <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="10" Opacity="0.5"/>
         <Rectangle Fill="White" Grid.Row="4" Grid.Column="8" Grid.RowSpan="5" />
         <Rectangle Fill="White" Grid.Row="2" Grid.Column="4"/>
         <Rectangle Fill="White" Grid.Row="2" Grid.Column="6"/>
         <Rectangle Style="{DynamicResource LineRectangle}" Grid.Row="2" Grid.Column="1"/>
         <TextBlock Text="Москва" Style="{DynamicResource TitleSityText}" Grid.Row="1" Grid.Column="1" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Content="Погода" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <Button Content="Настройки" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Button Content="Погода" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click"/>
+        <Button Content="Настройки" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_1"/>
         <Button x:Name="MinimizeButton" Style="{DynamicResource ControlButtonStyle}" Content="𛲖𛲖𛲖𛲖-" Click="MinimizeButton_Click" VerticalContentAlignment="Top" Grid.Column="6" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,18,0" FontSize="30"/>
         <Button x:Name="MaximizeButton" Style="{DynamicResource MaximizeBtn}" Click="MaximizeButton_Click" Grid.Column="7" VerticalAlignment="Top" HorizontalAlignment="Center" Height="15" Width="15" Margin="0,14,0,0" />
         <Button x:Name="CloseButton" Style="{DynamicResource ControlButtonStyle}" Content="х" Click="CloseButton_Click" Grid.Column="9" HorizontalAlignment="Center" FontSize="30"/>

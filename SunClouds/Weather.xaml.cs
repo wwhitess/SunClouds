@@ -12,6 +12,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SunClouds
@@ -21,13 +22,15 @@ namespace SunClouds
         public Weather()
         {
             InitializeComponent();
+
+            Frame.Content = new WeatherPage();
         }
         public void getWeather(string city, string tempType)
         {
             var json = ApiHelper.Get(city, tempType);
             var result = DerSerLib.jsonclass.JsonDeser<WeatherModel>(json);
 
-            testWeather.ItemsSource = new List<Main> { result.Main };
+          //  testWeather.ItemsSource = new List<Main> { result.Main }; ВЫГРУЗКА
         }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -52,5 +55,16 @@ namespace SunClouds
             DragMove();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = null;
+            Frame.Content = new WeatherPage();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame.Content = null;
+            Frame.Content = new SettingsPage();
+        }
     }
 }
