@@ -58,6 +58,7 @@
         <Setter Property="Background" Value="#591E6E"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Opacity" Value="0.5"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
     </Style>
 
     <Style x:Key="Rec1" TargetType="Rectangle">
@@ -66,5 +67,21 @@
 
     <Style x:Key="Rec2" TargetType="Rectangle">
         <Setter Property="Fill" Value="White"/>
+    </Style>
+
+    <Style x:Key="ButtonSettings" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
+    </Style>
+
+    <Style x:Key="LineRectangle" TargetType="Rectangle">
+        <Setter Property="Fill" Value="#591E6E"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TitleSityText">
+        <Setter Property="Foreground" Value="#591E6E"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
     </Style>
 </ResourceDictionary>

@@ -5,9 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SunClouds"
         mc:Ignorable="d"
-        Title="Weather" Height="450" Width="800">
-    <Grid>
+        Title="Weather" Width="1500" Height="900" MinHeight="700" MinWidth="1000" WindowStyle="None">
+    <Grid Style="{DynamicResource GridBackground}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="1.6*"/>
+            <RowDefinition Height="0.08*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="0.03*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
         <DataGrid x:Name="testWeather"/>
-
+        <RichTextBox Background="#F8C5B4" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="3" Opacity="0.5"/>
+        <Rectangle Fill="#F8C5B4" Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="3" Opacity="0.5"/>
+        <Rectangle Fill="#F8C5B4" Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="3" Opacity="0.5"/>
+        <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="10" Opacity="0.5"/>
+        <Rectangle Fill="White" Grid.Row="4" Grid.Column="8" Grid.RowSpan="5" />
+        <Rectangle Fill="White" Grid.Row="2" Grid.Column="4"/>
+        <Rectangle Fill="White" Grid.Row="2" Grid.Column="6"/>
+        <Rectangle Style="{DynamicResource LineRectangle}" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock Text="Москва" Style="{DynamicResource TitleSityText}" Grid.Row="1" Grid.Column="1" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Content="Погода" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <Button Content="Настройки" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+        <Button x:Name="MinimizeButton" Style="{DynamicResource ControlButtonStyle}" Content="𛲖𛲖𛲖𛲖-" Click="MinimizeButton_Click" VerticalContentAlignment="Top" Grid.Column="6" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,18,0" FontSize="30"/>
+        <Button x:Name="MaximizeButton" Style="{DynamicResource MaximizeBtn}" Click="MaximizeButton_Click" Grid.Column="7" VerticalAlignment="Top" HorizontalAlignment="Center" Height="15" Width="15" Margin="0,14,0,0" />
+        <Button x:Name="CloseButton" Style="{DynamicResource ControlButtonStyle}" Content="х" Click="CloseButton_Click" Grid.Column="9" HorizontalAlignment="Center" FontSize="30"/>
     </Grid>
 </Window>
