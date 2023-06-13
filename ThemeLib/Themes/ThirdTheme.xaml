@@ -84,4 +84,14 @@
         <Setter Property="Foreground" Value="#591E6E"/>
         <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
     </Style>
+    <Style TargetType="Rectangle" x:Key="SetCity">
+        <Setter Property="Fill" Value="#591E6E"/>
+    </Style>
+
+    <Style TargetType="RibbonButton" x:Key="RibbonStyle">
+        <Setter Property="Background" Value="#591E6E"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
+        <Setter Property="FontSize" Value="15"/>
+    </Style>
 </ResourceDictionary>
