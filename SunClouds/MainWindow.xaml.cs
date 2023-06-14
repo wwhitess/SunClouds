@@ -69,11 +69,14 @@ namespace SunClouds
             Close();
         }
 
-        private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void WindowTitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
         }
-  
+
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
             Weather weather = new Weather();

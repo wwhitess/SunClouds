@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SunClouds"
         mc:Ignorable="d"
         Title="Weather" Width="1500" Height="900" MinHeight="700" MinWidth="1000" WindowStyle="None">
-    <Grid Style="{DynamicResource GridBackground}">
+    <Grid Style="{DynamicResource GridBackground}" x:Name="WindowTitleBar" MouseDown="WindowTitleBar_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="1.3*"/>
             <RowDefinition Height="1.6*"/>
