@@ -66,5 +66,14 @@ namespace SunClouds
             Frame.Content = null;
             Frame.Content = new SettingsPage();
         }
+        private void WindowTitleBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
+
+
     }
 }
