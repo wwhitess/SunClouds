@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SunClouds"
         mc:Ignorable="d"
-        Title="Weather" Width="1500" Height="900" MinHeight="700" MinWidth="1000" WindowStyle="None">
+        Title="Weather" Width="1500" Height="900" MinHeight="700" MinWidth="1000" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid Style="{DynamicResource GridBackground}" x:Name="WindowTitleBar" MouseDown="WindowTitleBar_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="1.3*"/>
@@ -65,9 +65,9 @@
                 </WrapPanel>
                 <WrapPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="31" FontSize="24" TextWrapping="Wrap" TextAlignment="Right" Width="180">
-                    <Run Text="Ясно. "/>
-                    <Run Text="21&#xb0;"/>
-                    <Run Text="Ощущается как"/>
+                    <Run Text="Ясно. " FontWeight="Bold"/>
+                    <Run Text="21&#xb0;" FontWeight="Bold"/>
+                    <Run Text="Ощущается как" FontWeight="Bold"/>
                     <Run Text="25&#xb0;"/>
                     </TextBlock>
                 </WrapPanel>
@@ -135,11 +135,25 @@
         </Grid>
 
         <Rectangle Style="{DynamicResource LineRectangle}" Grid.Row="2" Grid.Column="1" />
-        <TextBlock Text="Москва" Style="{DynamicResource TitleSityText}" Grid.Row="1" Grid.Column="1" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Content="Погода" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click"/>
-        <Button Content="Настройки" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_1"/>
-        <Button x:Name="MinimizeButton" Style="{DynamicResource ControlButtonStyle}" Content="𛲖𛲖𛲖𛲖-" Click="MinimizeButton_Click" VerticalContentAlignment="Top" Grid.Column="6" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,18,0" FontSize="30"/>
-        <Button x:Name="MaximizeButton" Style="{DynamicResource MaximizeBtn}" Click="MaximizeButton_Click" Grid.Column="7" VerticalAlignment="Top" HorizontalAlignment="Center" Height="15" Width="15" Margin="0,14,0,0" />
-        <Button x:Name="CloseButton" Style="{DynamicResource ControlButtonStyle}" Content="х" Click="CloseButton_Click" Grid.Column="9" HorizontalAlignment="Center" FontSize="30"/>
+        <TextBlock x:Name="toCity" FontWeight="Bold" Style="{DynamicResource TitleSityText}" Grid.Row="1" Grid.Column="1" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Content="Погода" FontWeight="Bold" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click"/>
+        <Button Content="Настройки" FontWeight="Bold" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_1"/>
+        <Grid Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="MinimizeButton" FontWeight="Bold" Style="{DynamicResource ControlButtonStyle}" Content="𛲖𛲖𛲖𛲖-" Click="MinimizeButton_Click" VerticalContentAlignment="Top" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30"/>
+            <Button x:Name="MaximizeButton" FontWeight="Bold" Style="{DynamicResource MaximizeBtn}" Click="MaximizeButton_Click" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" />
+            <Button x:Name="CloseButton" FontWeight="Bold" Style="{DynamicResource ControlButtonStyle}" Content="х"  Click="CloseButton_Click" Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10" FontSize="30"/>
+        </Grid>
     </Grid>
 </Window>

@@ -99,7 +99,7 @@
     </Style>
 
     <Style TargetType="TextBlock" x:Key="TextPogoda">
-        <Setter Property="Foreground" Value="#FFF"/>
+        <Setter Property="Foreground" Value="#3D95B9"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
     </Style>

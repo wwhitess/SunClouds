@@ -23,12 +23,16 @@ namespace SunClouds
         {
             InitializeComponent();
 
+           
+
             Frame.Content = new WeatherPage();
         }
         public void getWeather(string city, string tempType)
         {
             var json = ApiHelper.Get(city, tempType);
             var result = DerSerLib.jsonclass.JsonDeser<WeatherModel>(json);
+
+            toCity.Text = city.ToString();
 
           //  testWeather.ItemsSource = new List<Main> { result.Main }; ВЫГРУЗКА
         }
