@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.2*"/>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="370"/>
             <ColumnDefinition Width="0.2*"/>
             <ColumnDefinition Width="0.5*"/>
             <ColumnDefinition Width="5*"/>
@@ -41,6 +41,85 @@
         <Rectangle Fill="White" Grid.Row="4" Grid.Column="8" Grid.RowSpan="5" />
         <Rectangle Fill="White" Grid.Row="2" Grid.Column="4"/>
         <Rectangle Fill="White" Grid.Row="2" Grid.Column="6"/>
+
+
+        <Grid Grid.Column="1" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="163"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <WrapPanel Grid.Column="0" HorizontalAlignment="Right" >
+                <Image Source="Sources/Sunny.png" MaxWidth="123"/>
+            </WrapPanel>
+            <WrapPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="31" FontSize="24" TextWrapping="Wrap" TextAlignment="Right" Width="200">
+                    <Run Text="Ясно. "/>
+                    <Run Text="21&#xb0;"/>
+                    <Run Text="Ощущается как"/>
+                    <Run Text="25&#xb0;"/>  
+                </TextBlock>
+            </WrapPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="224"/>
+            </Grid.ColumnDefinitions>
+            <WrapPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26" Foreground="#fff"/>
+            </WrapPanel>
+            <WrapPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="Sources/Sunny.png"/>
+            </WrapPanel>
+            <WrapPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock  Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
+                    <Run Text="Ясно. 21&#xb0;"/>
+                    <LineBreak/>
+                    <Run Text="Ощущается как 25&#xb0;"/>
+                </TextBlock>
+            </WrapPanel>
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="8" Grid.RowSpan="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="224"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26" Foreground="#fff"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="Sources/Cloudy.png" Width="60"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="23" Width="200" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
+                    <Run Text="Переменная"/>
+                    <Run Text="Облачность. 20&#xb0;"/>
+                    <Run Text="Ощущается как 19&#xb0;"/>
+                </TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26" Foreground="#fff"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image Source="Sources/Rainy.png" Width="60"/>
+            </WrapPanel>
+            <WrapPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock  Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
+                        <Run Text="Дождь. 19&#xb0;"/>
+                        <LineBreak/>
+                        <Run Text="Ощущается как 15&#xb0;"/>
+                </TextBlock>
+            </WrapPanel>
+        </Grid>
+
         <Rectangle Style="{DynamicResource LineRectangle}" Grid.Row="2" Grid.Column="1"/>
         <TextBlock Text="Москва" Style="{DynamicResource TitleSityText}" Grid.Row="1" Grid.Column="1" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Button Content="Погода" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click"/>

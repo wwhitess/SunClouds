@@ -97,4 +97,10 @@
         <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
         <Setter Property="FontSize" Value="15"/>
     </Style>
+
+    <Style TargetType="TextBlock" x:Key="TextPogoda">
+        <Setter Property="Foreground" Value="#FFF"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
+    </Style>
 </ResourceDictionary>

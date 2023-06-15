@@ -22,6 +22,9 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <RichTextBox Background="#F8C5B4" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
+        
+        
+        
         <Rectangle Fill="#F8C5B4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
         <Rectangle Fill="#F8C5B4" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
     </Grid>
