@@ -45,7 +45,7 @@
     
     <Style x:Key="TextBlock" TargetType="TextBlock">
         <Setter  Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
-        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Foreground" Value="#FFF"/>
     </Style>
 
     <Style x:Key="Button" TargetType="Button">
