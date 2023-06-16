@@ -73,7 +73,5 @@ namespace SunClouds
                 this.DragMove();
             }
         }
-
-
     }
 }

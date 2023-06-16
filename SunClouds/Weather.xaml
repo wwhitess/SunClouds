@@ -135,11 +135,12 @@
         </Grid>
 
         <Rectangle Style="{DynamicResource LineRectangle}" Grid.Row="2" Grid.Column="1" />
-        <TextBlock Text="Москва" Style="{DynamicResource TitleSityText}" Grid.Row="1" Grid.Column="1" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="TextDisplay" Text="Москва" Style="{DynamicResource TitleSityText}" Grid.Row="1" Grid.Column="1" FontSize="36" VerticalAlignment="Center" HorizontalAlignment="Center" x:FieldModifier="public"/>
         <Button Content="Погода" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Left" Click="Button_Click"/>
         <Button Content="Настройки" Style="{DynamicResource ButtonSettings}" FontSize="36" Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click_1"/>
         <Button x:Name="MinimizeButton" Style="{DynamicResource ControlButtonStyle}" Content="𛲖𛲖𛲖𛲖-" Click="MinimizeButton_Click" VerticalContentAlignment="Top" Grid.Column="6" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,18,0" FontSize="30"/>
         <Button x:Name="MaximizeButton" Style="{DynamicResource MaximizeBtn}" Click="MaximizeButton_Click" Grid.Column="7" VerticalAlignment="Top" HorizontalAlignment="Center" Height="15" Width="15" Margin="0,14,0,0" />
         <Button x:Name="CloseButton" Style="{DynamicResource ControlButtonStyle}" Content="х" Click="CloseButton_Click" Grid.Column="9" HorizontalAlignment="Center" FontSize="30"/>
+        
     </Grid>
 </Window>

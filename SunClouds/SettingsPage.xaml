@@ -37,7 +37,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Ваш основной город:" Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Style="{DynamicResource TextBlock}"/>
 
-        <TextBox Text="Город" GotKeyboardFocus="ClearBox" x:Name="SetCity" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>
+        <TextBox Text="{Binding ElementName=SelectCity,Path=Text}" GotKeyboardFocus="ClearBox" x:Name="SetCity" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}" TextChanged="SetCity_TextChanged"/>
         <TextBlock Text="Избранные города:" Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="28" Style="{DynamicResource TextBlock}"/>
         <Rectangle Style="{DynamicResource SetCity}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="10" Opacity="0.5"/>
         <WrapPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="8">
@@ -48,6 +48,6 @@
         <TextBlock Text="Исчисление градусов:" Grid.Row="8"  Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Style="{DynamicResource TextBlock}"/>
         <RibbonButton Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>
         <RibbonButton Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>
-        <Button Content="Сохранить" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="10" Style="{DynamicResource Button}" FontSize="15"/>
+        <Button x:Name="Save" Content="Сохранить" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="10" Style="{DynamicResource Button}" FontSize="15" Click="Save_Click"/>
     </Grid>
 </Page>

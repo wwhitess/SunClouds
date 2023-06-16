@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DerSerLib;
+using SunClouds.Helpers;
 
 namespace SunClouds
 {
@@ -33,6 +35,23 @@ namespace SunClouds
         private void ClearAddBox(object sender, KeyboardFocusChangedEventArgs e)
         {
             AddCity.Clear();
+        }
+
+        private void SetCity_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (Window window in Application.Current.Windows)
+            {
+                if (window.GetType() == typeof(Weather))
+                {
+                    (window as Weather).TextDisplay.Text = SetCity.Text;
+                }
+            }
+            //jsonclass.JsonDeser<>()
         }
     }
 }
