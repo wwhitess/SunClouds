@@ -56,10 +56,12 @@
     </Style>
 
     <Style x:Key="MaximizeBtn" TargetType="Button">
+        <Setter Property="Height" Value="15"/>
+        <Setter Property="Width" Value="15"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="Transparent" BorderBrush="#87B6CA" BorderThickness="2">
+                    <Border Background="Transparent" BorderBrush="#FFF" BorderThickness="2">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
