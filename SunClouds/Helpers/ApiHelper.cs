@@ -28,7 +28,6 @@ namespace SunClouds.Helpers
                 {
                     tempType = TType;
                 }
-
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = client.GetAsync(DefaultUrl + tempType + "&q=" + city).Result;
                 return response.Content.ReadAsStringAsync().Result;
