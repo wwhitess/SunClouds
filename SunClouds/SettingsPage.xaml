@@ -43,8 +43,8 @@
         <WrapPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="8">
 
         </WrapPanel>
-        <TextBox Text="Название города" x:Name="AddCity" GotKeyboardFocus="ClearAddBox" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>
-        <Button Content="Добавить город" Style="{DynamicResource Button}" Grid.Row="6" Grid.Column="9" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
+        <TextBox Text="Название города" x:Name="FavoriteCityBox" GotKeyboardFocus="ClearAddBox" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>
+        <Button x:Name="AddFavoriteCity" Content="Добавить город" Style="{DynamicResource Button}" Grid.Row="6" Grid.Column="9" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" Click="AddFavoriteCity_click"/>
         <TextBlock Text="Исчисление градусов:" Grid.Row="8"  Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Style="{DynamicResource TextBlock}"/>
         <RibbonButton Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>
         <RibbonButton Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>

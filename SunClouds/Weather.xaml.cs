@@ -19,22 +19,20 @@ namespace SunClouds
 {
     public partial class Weather : Window
     {
+        SettingsPage settingsPage = new SettingsPage();
+        WeatherPage weatherPage = new WeatherPage();
         public Weather()
         {
             InitializeComponent();
-
-           
-
-            Frame.Content = new WeatherPage();
+            Frame.Content = weatherPage;
         }
         public void getWeather(string city, string tempType)
         {
             var json = ApiHelper.Get(city, tempType);
             var result = DerSerLib.jsonclass.JsonDeser<WeatherModel>(json);
-
-            toCity.Text = city.ToString();
-
-          //  testWeather.ItemsSource = new List<Main> { result.Main }; ВЫГРУЗКА
+            toCity.Text = city;
+            settingsPage.SetSettings(tempType);
+            //  testWeather.ItemsSource = new List<Main> { result.Main }; ВЫГРУЗКА
         }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -62,13 +60,14 @@ namespace SunClouds
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Frame.Content = null;
-            Frame.Content = new WeatherPage();
+            Frame.Content = weatherPage;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Frame.Content = null;
-            Frame.Content = new SettingsPage();
+            Frame.Content = settingsPage;
+            
         }
         private void WindowTitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {

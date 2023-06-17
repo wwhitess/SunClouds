@@ -26,10 +26,11 @@ namespace SunClouds
 
             SystemEvents.TimeChanged += ThemeSelectTime;
 
-            SelectCity.Text = SunClouds.Properties.Settings.Default.DefaultCity;
+            SelectCity.Text = Properties.Settings.Default.DefaultCity;
 
             SelectTheme();
         }
+
         private void ThemeSelectTime(object sender, EventArgs e)
         {
             SelectTheme();
@@ -79,10 +80,15 @@ namespace SunClouds
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
-            Weather weather = new Weather();
-            weather.getWeather(SelectCity.Text, "");
-            weather.Show();
-            Close();
+            if (SelectCity.Text == "" || 
+                SelectCity.Text == "Выберите город") { MessageBox.Show("Выберете город"); }
+            else
+            {
+                Weather weather = new Weather();
+                weather.getWeather(SelectCity.Text, "");
+                weather.Show();
+                Close();
+            }
         }
         private void ClearBox(object sender, KeyboardFocusChangedEventArgs e)
         {
