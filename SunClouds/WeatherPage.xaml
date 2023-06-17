@@ -45,56 +45,56 @@
             <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="10" Opacity="0.5"/>
             
             <WrapPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Style="{DynamicResource TextBlock}" Text="21&#xb0;" TextWrapping="NoWrap" FontSize="64" Grid.Row="1" MinHeight="75" Width="75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="tempNow" Style="{DynamicResource TextBlock}" Text="21&#xb0;" TextWrapping="NoWrap" FontSize="64" Grid.Row="1" MinHeight="75" Width="75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </WrapPanel>
             <Rectangle Fill="White" Width="1" Grid.Row="1" Grid.Column="1"/>
             <WrapPanel Grid.Column="3"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock TextWrapping="NoWrap" FontSize="24" Style="{DynamicResource TextBlock}" Grid.Column="2" Height="65" Width="126" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                 <Run Text="Ощущение:" FontWeight="Bold"/>
                 <LineBreak/>
-                <Run Text="21&#xb0;"/>
+                <Run x:Name="feelsLikeNow" Text="21&#xb0;"/>
                 </TextBlock>
             </WrapPanel>
             <WrapPanel Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="3" Height="65" Width="52" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                 <Run Text="Мин." FontWeight="Bold"/>
                 <LineBreak/>
-                <Run Text="21&#xb0;"/>
+                <Run x:Name="minTempNow" Text="21&#xb0;"/>
                 </TextBlock>
             </WrapPanel>
             <WrapPanel Grid.Column="5"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="4" Height="65" Width="65" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                 <Run Text="Макс." FontWeight="Bold"/>
                 <LineBreak/>
-                <Run Text="21&#xb0;"/>
+                <Run x:Name="maxTempNow" Text="21&#xb0;"/>
                 </TextBlock>
             </WrapPanel>
             <WrapPanel Grid.Column="6"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="5" Height="65" Width="135" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                 <Run Text="Давление:" FontWeight="Bold"/>
                 <LineBreak/>
-                <Run Text="21 мм рт. ст."/>
+                <Run x:Name="pressureNow" Text=" мм рт. ст."/>
                 </TextBlock>
             </WrapPanel>
             <WrapPanel Grid.Column="7"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="6" Height="65" Width="135" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                 <Run Text="Влажность:" FontWeight="Bold"/>
                 <LineBreak/>
-                <Run Text="21%"/>
+                <Run x:Name="humidityNow" Text="21%"/>
                 </TextBlock>
             </WrapPanel>
             <WrapPanel Grid.Column="8"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="7" Height="65" Width="122" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                 <Run Text="Ветер м\с:" FontWeight="Bold"/>
                 <LineBreak/>
-                <Run Text="7 м\с"/>
+                <Run x:Name="windNow" Text=" м\с"/>
                 </TextBlock>
             </WrapPanel>
             <WrapPanel Grid.Column="9"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="8" Height="65" Width="84" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
                 <Run Text="Ветер&#xb0;:" FontWeight="Bold"/>
                 <LineBreak/>
-                <Run Text="290"/>
+                <Run x:Name="windDegNow" Text="290"/>
                 </TextBlock>
             </WrapPanel>
         </Grid>

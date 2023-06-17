@@ -29,9 +29,10 @@ namespace SunClouds
         public void getWeather(string city, string tempType)
         {
             var json = ApiHelper.Get(city, tempType);
-            var result = DerSerLib.jsonclass.JsonDeser<WeatherModel>(json);
+            WeatherModel result = DerSerLib.jsonclass.JsonDeser<WeatherModel>(json);
             toCity.Text = city;
             settingsPage.SetSettings(tempType);
+            weatherPage.GetData(result);
             //  testWeather.ItemsSource = new List<Main> { result.Main }; ВЫГРУЗКА
         }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
