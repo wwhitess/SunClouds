@@ -80,7 +80,7 @@ namespace SunClouds
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
-            if (SelectCity.Text == "" || 
+            if (SelectCity.Text == "" ||
                 SelectCity.Text == "Выберите город") { MessageBox.Show("Выберете город"); }
             else
             {
@@ -90,7 +90,7 @@ namespace SunClouds
                 Close();
             }
         }
-        private void ClearBox(object sender, KeyboardFocusChangedEventArgs e)
+        private void ClearBox(object sender, RoutedEventArgs e)
         {
             SelectCity.Clear();
         }
