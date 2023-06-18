@@ -30,7 +30,6 @@ namespace SunClouds
         public WeatherPage()
         {
             InitializeComponent();
-            
         }
         internal void GetData(WeatherModel weather)
         {
