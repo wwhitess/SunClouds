@@ -66,9 +66,9 @@
                 <WrapPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="31" FontSize="24" TextWrapping="Wrap" TextAlignment="Right" Width="180">
                     <Run Text="Ясно. " FontWeight="Bold"/>
-                    <Run Text="21&#xb0;" FontWeight="Bold"/>
+                    <Run x:Name="tempNow" Text="21&#xb0;" FontWeight="Bold"/>
                     <Run Text="Ощущается как" FontWeight="Bold"/>
-                    <Run Text="25&#xb0;"/>
+                    <Run x:Name="feelLikeNow" Text="25&#xb0;"/>
                     </TextBlock>
                 </WrapPanel>
             </Grid>

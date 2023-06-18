@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -21,6 +22,8 @@ namespace SunClouds
     {
         SettingsPage settingsPage = new SettingsPage();
         WeatherPage weatherPage = new WeatherPage();
+        WeatherModel weatherNow;
+        string deg = "°";
         public Weather()
         {
             InitializeComponent();
@@ -30,10 +33,11 @@ namespace SunClouds
         {
             var json = ApiHelper.Get(city, tempType);
             WeatherModel result = DerSerLib.jsonclass.JsonDeser<WeatherModel>(json);
+            weatherNow = result;
             toCity.Text = city;
             settingsPage.SetSettings(tempType);
             weatherPage.GetData(result);
-            //  testWeather.ItemsSource = new List<Main> { result.Main }; ВЫГРУЗКА
+            SetLeftWeather();
         }
         private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -76,6 +80,11 @@ namespace SunClouds
             {
                 this.DragMove();
             }
+        }
+        private void SetLeftWeather()
+        {
+            tempNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Temp) + deg);
+            feelLikeNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Feels_like) + deg);
         }
 
 
