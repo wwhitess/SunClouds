@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SunClouds"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="742" d:DesignWidth="975"
       Title="SettingsPage">
     <Grid>
         <Grid.RowDefinitions>
@@ -37,17 +37,21 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Ваш основной город:" Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Style="{DynamicResource TextBlock}"/>
 
-        <TextBox Text="Город" GotKeyboardFocus="ClearBox" x:Name="SetCity" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>
+        <TextBox Text="Город" x:Name="SetCity" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>
+        <Button Click="ClearBox" Grid.Row="1"  Grid.Column="9" Content="X" Style="{DynamicResource ClearBut}" FontSize="15" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
         <TextBlock Text="Избранные города:" Grid.Row="2"  Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="28" Style="{DynamicResource TextBlock}"/>
-        <Rectangle Style="{DynamicResource SetCity}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="10" Opacity="0.5"/>
-        <WrapPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="8">
+        <Rectangle Fill="#F8C5B4" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="10" Opacity="0.5"/>
 
+        <WrapPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="8" Orientation="Horizontal" x:Name="WrapPanel">
+            
         </WrapPanel>
-        <TextBox Text="Название города" x:Name="FavoriteCityBox" GotKeyboardFocus="ClearAddBox" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>
+
+        <TextBox Text="Название города" x:Name="FavoriteCityBox" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>
+        <Button Click="ClearAddBox" Grid.Row="6" Grid.Column="8" Content="X" Style="{DynamicResource ClearBut}" FontSize="15" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
         <Button x:Name="AddFavoriteCity" Content="Добавить город" Style="{DynamicResource Button}" Grid.Row="6" Grid.Column="9" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" Click="AddFavoriteCity_click"/>
         <TextBlock Text="Исчисление градусов:" Grid.Row="8"  Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Style="{DynamicResource TextBlock}"/>
         <RibbonButton Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>
         <RibbonButton Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>
-        <Button Content="Сохранить" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="10" Style="{DynamicResource Button}" FontSize="15"/>
+        <Button Content="Сохранить" Click="Save" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="10" Style="{DynamicResource Button}" FontSize="15"/>
     </Grid>
 </Page>
