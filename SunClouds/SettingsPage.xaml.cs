@@ -23,9 +23,11 @@ namespace SunClouds
     public partial class SettingsPage : Page
     {
         private string TTemp;
+        List<FavoriteCity> CityList = new List<FavoriteCity>();
         public SettingsPage()
         {
             InitializeComponent();
+            GetCityList();
         }
         public void SetSettings(string TTemp)
         {
@@ -50,6 +52,9 @@ namespace SunClouds
             var result = DerSerLib.jsonclass.JsonDeser<WeatherModel>(json);
             double lon = result.Coord.Lon;
             double lat = result.Coord.Lat;
+            FavoriteCity city = new FavoriteCity(FavoriteCityBox.Text, lon, lat);
+            CityList.Add(city);
+            DerSerLib.jsonclass.JsonSer(CityList, "FavoriteCity"); //перенести на кнопку сохранения.
 
             Grid grid = new Grid();
             grid.Height = 66;
@@ -140,15 +145,117 @@ namespace SunClouds
         }
         private void Save(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.DefaultCity = SetCity.Text;
-            Properties.Settings.Default.Save();
+            Properties.Settings.Default.DefaultCity = SetCity.Text; //
+            Properties.Settings.Default.Save();                     //перенести в кнопку сохранения.
+        }
+        private void GetCityList()
+        {
+            CityList = DerSerLib.jsonclass.FileDeser(CityList, "FavoriteCity");
+            int count = 0;
+
+            foreach (FavoriteCity data in CityList)
+            {
+                count++;
+                string name = data.Name;
+                double lon = data.Lon;
+                double lat = data.Lat;
+                Grid grid = new Grid();
+                grid.Height = 66;
+                grid.Width = 195;
+                grid.Margin = new Thickness(10, 10, 30, 10);
+
+                grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(33) });
+                grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(33) });
+                grid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star) });
+
+                Rectangle rectangle1 = new Rectangle();
+
+                rectangle1.Style = (Style)FindResource("SetCity");
+
+                Grid.SetRow(rectangle1, 0);
+                Grid.SetColumn(rectangle1, 0);
+                Grid.SetColumnSpan(rectangle1, 2);
+
+                grid.Children.Add(rectangle1);
+
+                Rectangle rectangle2 = new Rectangle();
+
+                rectangle2.Style = (Style)FindResource("SetCity");
+                rectangle2.Opacity = 0.5;
+
+                Grid.SetRow(rectangle2, 1);
+                Grid.SetColumn(rectangle2, 0);
+                Grid.SetColumnSpan(rectangle2, 2);
+
+                grid.Children.Add(rectangle2);
+
+                Button button = new Button();
+
+                button.Click += DeleteBlock;
+                button.Style = (Style)FindResource("ClearBut");
+                button.Opacity = 1;
+                button.FontWeight = FontWeights.Bold;
+                button.Width = 25;
+                button.Height = 25;
+                button.Content = "x";
+                button.FontSize = 17;
+                button.Margin = new Thickness(170, -2, 0, 0);
+                button.VerticalAlignment = VerticalAlignment.Top;
+                button.HorizontalAlignment = HorizontalAlignment.Left;
+
+                Grid.SetRow(button, 0);
+                Grid.SetColumn(button, 0);
+                Grid.SetColumnSpan(button, 2);
+
+                grid.Children.Add(button);
+
+                TextBlock blockCity = new TextBlock();
+
+                blockCity.Name = "BlockCity";
+                blockCity.Text = name;
+                blockCity.HorizontalAlignment = HorizontalAlignment.Center;
+                blockCity.TextAlignment = TextAlignment.Center;
+                blockCity.VerticalAlignment = VerticalAlignment.Center;
+                blockCity.Style = (Style)FindResource("TextBlock");
+                blockCity.FontSize = 18;
+                blockCity.FontWeight = FontWeights.Bold;
+
+                Grid.SetRow(blockCity, 0);
+                Grid.SetColumn(blockCity, 0);
+                Grid.SetColumnSpan(blockCity, 2);
+
+                grid.Children.Add(blockCity);
+
+                TextBlock blockCord = new TextBlock();
+
+                blockCord.Name = "BlockCord";
+                blockCord.Text = $"{lon}, с.ш {lat} в.э";
+                blockCord.FontSize = 15;
+                blockCord.Style = (Style)FindResource("TextBlock");
+                blockCord.FontWeight = FontWeights.Thin;
+                blockCord.TextAlignment = TextAlignment.Center;
+                blockCord.VerticalAlignment = VerticalAlignment.Center;
+
+                Grid.SetRow(blockCord, 1);
+                Grid.SetColumn(blockCord, 0);
+                Grid.SetColumnSpan(blockCord, 2);
+
+                grid.Children.Add(blockCord);
+
+                WrapPanel.Children.Add(grid);
+
+                FavoriteCityBox.Text = "";
+            }
         }
 
         private void DeleteBlock(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
             Grid grid = (Grid)button.Parent;
+            int index = WrapPanel.Children.IndexOf(grid);
             WrapPanel.Children.Remove(grid);
+            CityList.RemoveAt(index);
+            DerSerLib.jsonclass.JsonSer(CityList, "FavoriteCity"); //после перенесения в логику кнопки сохранения - удалить!!!
         }
     }
 }
