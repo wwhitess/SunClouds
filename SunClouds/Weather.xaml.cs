@@ -72,7 +72,6 @@ namespace SunClouds
         {
             Frame.Content = null;
             Frame.Content = settingsPage;
-            
         }
         private void WindowTitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -86,7 +85,5 @@ namespace SunClouds
             tempNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Temp) + deg);
             feelLikeNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Feels_like) + deg);
         }
-
-
     }
 }
