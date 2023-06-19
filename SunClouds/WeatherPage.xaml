@@ -496,26 +496,6 @@
         </Grid>
         <Rectangle Fill="#F8C5B4" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10"/>
-        <Border Grid.Column="5"
-                MinHeight="350"
-                Margin="0,0,10,10"
-                CornerRadius="10">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="0"
-                                  Opacity="0.5"
-                                  ShadowDepth="3"
-                                  Color="White" />
-            </Border.Effect>
-        </Border>
-
-        <Border Name="graphicsPanel"
-                Grid.Column="2"
-                Height="350"
-                Margin="0,0,10,10"
-                Padding="20,15"
-                BorderBrush="White"
-                CornerRadius="10"/>
-
         <Border BorderThickness="1.2"
                 Padding="0"
                 HorizontalAlignment="Left"
@@ -525,16 +505,10 @@
         <charts:CartesianChart Name="chart"
                                Grid.Row="4"
                                Margin="0,41,0,0"
-                               
                                Series="{Binding TemperatureData}" 
-                              
                                XAxes="{Binding TimeData}"
                                TooltipFindingStrategy="CompareAll"
-                               
                                Grid.ColumnSpan="3" />
-
-
-
         <Button Content="Температура" Margin="10,8,169,294" Click="TemperatureButton_Click" Grid.Row="4" Background="#3D95B9" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
         <Button Content="Ощущается как" Margin="323,8,323,294" Click="FeelsLikeButton_Click" Grid.Row="4" Grid.ColumnSpan="3" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9">
             <Button.Background>

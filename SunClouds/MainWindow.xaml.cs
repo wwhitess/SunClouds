@@ -74,7 +74,12 @@ namespace SunClouds
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                this.DragMove();
+                Point mousePos = e.GetPosition(WindowTitleBar);
+
+                if (mousePos.Y <= WindowTitleBar.RowDefinitions[0].ActualHeight && mousePos.X >= WindowTitleBar.ColumnDefinitions[0].Offset && mousePos.X <= WindowTitleBar.ColumnDefinitions[0].Offset + WindowTitleBar.ColumnDefinitions[0].ActualWidth * 7)
+                {
+                    this.DragMove();
+                }
             }
         }
 
