@@ -26,6 +26,7 @@ namespace SunClouds
         WeatherModel weatherNow;
         private Timer timer;
         string deg = "°";
+
         public Weather()
         {
             InitializeComponent();
@@ -36,12 +37,11 @@ namespace SunClouds
             timer.Elapsed += new ElapsedEventHandler(AsyncEvent);
             timer.Enabled = true;
         }
-
         private async void AsyncEvent(object source, ElapsedEventArgs e)
         {
             if (DateTime.Now.Hour % 2 == 0)
             {
-                await Task.Run(() =>
+                Dispatcher.Invoke(() =>
                 {
                     SetLeftWeather();
                 });

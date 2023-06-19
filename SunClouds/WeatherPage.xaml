@@ -46,7 +46,7 @@
             <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="10" Opacity="0.5"/>
 
             <WrapPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock x:Name="tempNow" Style="{DynamicResource TextBlock}" Text="21&#xb0;" TextWrapping="NoWrap" FontSize="64" Grid.Row="1" MinHeight="75" Width="75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="tempNow" Style="{DynamicResource TextWeatherMain}" Text="21&#xb0;" TextWrapping="NoWrap" FontSize="64" Grid.Row="1" MinHeight="75" MinWidth="75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </WrapPanel>
             <Rectangle Fill="White" Width="1" Grid.Row="1" Grid.Column="1"/>
             <WrapPanel Grid.Column="3"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -152,8 +152,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -187,8 +187,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -222,8 +222,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -257,8 +257,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -292,8 +292,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -327,8 +327,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -362,8 +362,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -397,8 +397,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -432,8 +432,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -467,8 +467,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
-                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <Rectangle Style="{DynamicResource LineRectangle}" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Style="{DynamicResource LineRectangle}"  Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
                         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
@@ -509,13 +509,9 @@
                                XAxes="{Binding TimeData}"
                                TooltipFindingStrategy="CompareAll"
                                Grid.ColumnSpan="3" />
-        <Button Content="Температура" Margin="10,8,169,294" Click="TemperatureButton_Click" Grid.Row="4" Background="#3D95B9" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
-        <Button Content="Ощущается как" Margin="323,8,323,294" Click="FeelsLikeButton_Click" Grid.Row="4" Grid.ColumnSpan="3" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9">
-            <Button.Background>
-                <SolidColorBrush Color="#FF87B6CA" Opacity="0.9"/>
-            </Button.Background>
-        </Button>
-        <Button Content="Давление" Click="PressureButton_Click" Grid.Column="2" Margin="169,8,10,294" Grid.Row="4" Background="#87B6CA" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
+        <Button Content="Температура" Margin="10,8,169,294" Click="TemperatureButton_Click" Grid.Row="4" FontSize="20" Style="{DynamicResource ButtonTemp}" FontWeight="Bold"/>
+        <Button Content="Ощущается как" Margin="323,8,323,294" Click="FeelsLikeButton_Click" Grid.Row="4" Grid.ColumnSpan="3" FontSize="20" Style="{DynamicResource Button}" FontWeight="Bold" />
+        <Button Content="Давление" Click="PressureButton_Click" Grid.Column="2" Margin="169,8,10,294" Grid.Row="4" FontSize="20" Style="{DynamicResource Button}" FontWeight="Bold" />
 
     </Grid>
 </Page>

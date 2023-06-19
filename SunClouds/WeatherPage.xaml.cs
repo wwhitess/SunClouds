@@ -41,7 +41,26 @@ namespace SunClouds
 
         WeatherModel data;
 
-       
+        public WeatherPage()
+        {
+            InitializeComponent();
+
+
+            TemperatureData = new List<ISeries>
+            {
+                new LineSeries<double> { Values = new ChartValues<double> { 10, 20, 30, 40, 50 } }
+
+            };
+
+            TimeData = new List<string> { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" };
+
+            DataContext = this;
+
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += new ElapsedEventHandler(AsyncEvent);
+            timer.Enabled = true;
+        }
         internal void GetData(WeatherModel weather)
         {
             data = weather;
@@ -59,6 +78,19 @@ namespace SunClouds
             windNow.Text = Convert.ToString(Math.Round(data.Wind.Speed) + "м\\с");
             windDegNow.Text = Convert.ToString(data.Wind.Deg);
         }
+        private async void AsyncEvent(object source, ElapsedEventArgs e)
+        {
+            if (DateTime.Now.Hour % 2 == 0)
+            {
+                Dispatcher.Invoke(() =>
+                {
+                    SetNow();
+                });
+            }
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         private List<ISeries> _temperatureData;
         public List<ISeries> TemperatureData
         {
@@ -80,41 +112,6 @@ namespace SunClouds
                 OnPropertyChanged();
             }
         }
-
-        public WeatherPage()
-        {
-            InitializeComponent();
-
-            
-            TemperatureData = new List<ISeries>
-            {
-                new LineSeries<double> { Values = new ChartValues<double> { 10, 20, 30, 40, 50 } }
-
-            };
-
-            TimeData = new List<string> { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" };
-
-            DataContext = this;
-
-            timer = new Timer();
-            timer.Interval = 1000;
-            timer.Elapsed += new ElapsedEventHandler(AsyncEvent);
-            timer.Enabled = true;
-        }
-
-        private async void AsyncEvent(object source, ElapsedEventArgs e)
-        {
-            if (DateTime.Now.Hour % 2 == 0)
-            {
-                await Task.Run(() =>
-                {
-                    SetNow();
-                });
-            }
-        }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -122,17 +119,17 @@ namespace SunClouds
         }
         private void TemperatureButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            //В процессе (Ожидание почасовой погоды)
         }
 
         private void FeelsLikeButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            //В процессе (Ожидание почасовой погоды)
         }
 
         private void PressureButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            //В процессе (Ожидание почасовой погоды)
         }
     }
 }
