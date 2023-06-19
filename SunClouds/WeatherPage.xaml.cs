@@ -25,6 +25,7 @@ using System.Runtime.CompilerServices;
 using LiveChartsCore.Kernel.Sketches;
 using LiveCharts.Wpf;
 using LiveCharts;
+using System.Timers;
 
 
 namespace SunClouds
@@ -35,6 +36,7 @@ namespace SunClouds
    
     public partial class WeatherPage : Page, INotifyPropertyChanged
     {
+        private Timer timer;
         readonly string deg = "°";
 
         WeatherModel data;
@@ -93,6 +95,22 @@ namespace SunClouds
             TimeData = new List<string> { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" };
 
             DataContext = this;
+
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += new ElapsedEventHandler(AsyncEvent);
+            timer.Enabled = true;
+        }
+
+        private async void AsyncEvent(object source, ElapsedEventArgs e)
+        {
+            if (DateTime.Now.Hour % 2 == 0)
+            {
+                await Task.Run(() =>
+                {
+                    SetNow();
+                });
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
