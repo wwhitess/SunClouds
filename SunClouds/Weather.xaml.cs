@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Timers;
 
 namespace SunClouds
 {
@@ -23,11 +24,28 @@ namespace SunClouds
         SettingsPage settingsPage = new SettingsPage();
         WeatherPage weatherPage = new WeatherPage();
         WeatherModel weatherNow;
+        private Timer timer;
         string deg = "°";
         public Weather()
         {
             InitializeComponent();
             Frame.Content = weatherPage;
+
+            timer = new Timer();
+            timer.Interval = 1000;
+            timer.Elapsed += new ElapsedEventHandler(AsyncEvent);
+            timer.Enabled = true;
+        }
+
+        private async void AsyncEvent(object source, ElapsedEventArgs e)
+        {
+            if (DateTime.Now.Hour % 2 == 0)
+            {
+                await Task.Run(() =>
+                {
+                    SetLeftWeather();
+                });
+            }
         }
         public void getWeather(string city, string tempType)
         {
