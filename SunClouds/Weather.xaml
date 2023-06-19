@@ -1,12 +1,19 @@
-﻿<Window x:Class="SunClouds.Weather"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SunClouds"
+        xmlns:WPF="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF" x:Class="SunClouds.Weather"
         mc:Ignorable="d"
         Title="Weather" Width="1500" Height="900" MinHeight="700" MinWidth="1000" WindowStyle="None" WindowStartupLocation="CenterScreen">
     <Grid Style="{DynamicResource GridBackground}" x:Name="WindowTitleBar" MouseDown="WindowTitleBar_MouseDown">
+        <Grid.Resources>
+            <Style x:Key="NoNavigationFrameStyle" TargetType="{x:Type Frame}">
+                <Setter Property="NavigationUIVisibility" Value="Hidden" />
+            </Style>
+        </Grid.Resources>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="1.3*"/>
             <RowDefinition Height="1.6*"/>
@@ -31,12 +38,7 @@
             <ColumnDefinition Width="0.03*"/>
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
-        <Grid.Resources>
-            <Style x:Key="NoNavigationFrameStyle" TargetType="Frame">
-                <Setter Property="NavigationUIVisibility" Value="Hidden" />
-            </Style>
-        </Grid.Resources>
-        
+
         <Frame Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="6" x:Name="Frame" Style="{StaticResource NoNavigationFrameStyle}"/>
         <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="10" Opacity="0.5"/>
         <Rectangle Fill="White" Grid.Row="4" Grid.Column="8" Grid.RowSpan="5" />
@@ -64,12 +66,7 @@
                     <Image Source="Sources/Sunny.png" Width="160" Height="130"/>
                 </WrapPanel>
                 <WrapPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="31" FontSize="24" TextWrapping="Wrap" TextAlignment="Right" Width="180">
-                    <Run Text="Ясно. " FontWeight="Bold"/>
-                    <Run x:Name="tempNow" Text="21&#xb0;" FontWeight="Bold"/>
-                    <Run Text="Ощущается как" FontWeight="Bold"/>
-                    <Run x:Name="feelLikeNow" Text="25&#xb0;"/>
-                    </TextBlock>
+                    <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="31" FontSize="24" TextWrapping="Wrap" TextAlignment="Right" Width="180"><Run Text="Ясно. " FontWeight="Bold"/><Run Text=" "/><Run x:Name="tempNow" Text="21°" FontWeight="Bold"/><Run Text=" "/><Run Text="Ощущается как" FontWeight="Bold"/><Run Text=" "/><Run x:Name="feelLikeNow" Text="25°"/></TextBlock>
                 </WrapPanel>
             </Grid>
             <Grid Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Center">
@@ -85,11 +82,7 @@
                     <Image Source="Sources/Sunny.png"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock  Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
-                    <Run Text="Ясно. 21&#xb0;"/>
-                    <LineBreak/>
-                    <Run Text="Ощущается как 25&#xb0;"/>
-                    </TextBlock>
+                    <TextBlock  Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left"><Run Text="Ясно. 21°"/><LineBreak/><Run Text="Ощущается как 25°"/></TextBlock>
                 </WrapPanel>
             </Grid>
             <Grid Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Center">
@@ -105,11 +98,7 @@
                     <Image Source="Sources/Cloudy.png" Width="60"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="23" Width="200" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
-                    <Run Text="Переменная"/>
-                    <Run Text="Облачность. 20&#xb0;"/>
-                    <Run Text="Ощущается как 19&#xb0;"/>
-                    </TextBlock>
+                    <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="23" Width="200" FontSize="20" TextWrapping="Wrap" TextAlignment="Left"><Run Text="Переменная"/><Run Text=" "/><Run Text="Облачность. 20°"/><Run Text=" "/><Run Text="Ощущается как 19°"/></TextBlock>
                 </WrapPanel>
             </Grid>
             <Grid Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Center">
@@ -125,11 +114,7 @@
                     <Image Source="Sources/Rainy.png" Width="60"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
-                        <Run Text="Дождь. 19&#xb0;"/>
-                        <LineBreak/>
-                        <Run Text="Ощущается как 15&#xb0;"/>
-                    </TextBlock>
+                    <TextBlock Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left"><Run Text="Дождь. 19°"/><LineBreak/><Run Text="Ощущается как 15°"/></TextBlock>
                 </WrapPanel>
             </Grid>
         </Grid>
@@ -150,10 +135,388 @@
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="40"/>
             </Grid.ColumnDefinitions>
-            
+
             <Button x:Name="MinimizeButton" FontWeight="Bold" Style="{DynamicResource ControlButtonStyle}" Content="𛲖𛲖𛲖𛲖-" Click="MinimizeButton_Click" VerticalContentAlignment="Top" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="30"/>
             <Button x:Name="MaximizeButton" FontWeight="Bold" Style="{DynamicResource MaximizeBtn}" Click="MaximizeButton_Click" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" />
             <Button x:Name="CloseButton" FontWeight="Bold" Style="{DynamicResource ControlButtonStyle}" Content="х"  Click="CloseButton_Click" Grid.Column="3" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10" FontSize="30"/>
         </Grid>
+        <Grid Margin="0,0,18,33" Grid.ColumnSpan="4" Grid.Column="4" Grid.Row="4" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.9*"/>
+                <ColumnDefinition Width="0.01*"/>
+                <ColumnDefinition Width="1"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="1.4*"/>
+                <ColumnDefinition Width="1.6*"/>
+                <ColumnDefinition Width="1.4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="10" Opacity="0.5"/>
+
+            <WrapPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="tempNow1" Style="{DynamicResource TextBlock}" Text="21°" TextWrapping="NoWrap" FontSize="64" Grid.Row="1" MinHeight="75" Width="75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </WrapPanel>
+            <Rectangle Fill="White" Width="1" Grid.Row="1" Grid.Column="1"/>
+            <WrapPanel Grid.Column="3"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock TextWrapping="NoWrap" FontSize="24" Style="{DynamicResource TextBlock}" Grid.Column="2" Height="65" Width="126" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="Ощущение:" FontWeight="Bold"/><LineBreak/><Run x:Name="feelsLikeNow" Text="21°"/></TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="3" Height="65" Width="52" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="Мин." FontWeight="Bold"/><LineBreak/><Run x:Name="minTempNow" Text="21°"/></TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="5"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="4" Height="65" Width="65" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="Макс." FontWeight="Bold"/><LineBreak/><Run x:Name="maxTempNow" Text="21°"/></TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="6"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="5" Height="65" Width="135" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="Давление:" FontWeight="Bold"/><LineBreak/><Run x:Name="pressureNow" Text=" мм рт. ст."/></TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="7"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="6" Height="65" Width="135" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="Влажность:" FontWeight="Bold"/><LineBreak/><Run x:Name="humidityNow" Text="21%"/></TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="8"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="7" Height="65" Width="122" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="Ветер м\с:" FontWeight="Bold"/><LineBreak/><Run x:Name="windNow" Text=" м\с"/></TextBlock>
+            </WrapPanel>
+            <WrapPanel Grid.Column="9"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="24" Style="{DynamicResource TextBlock}" TextWrapping="Wrap" Grid.Column="8" Height="65" Width="84" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center"><Run Text="Ветер°:" FontWeight="Bold"/><LineBreak/><Run x:Name="windDegNow" Text="290"/></TextBlock>
+            </WrapPanel>
+        </Grid>
+        <Grid Grid.Column="4" Grid.Row="5" Grid.RowSpan="3" Margin="0,27,18,33" Grid.ColumnSpan="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.Column="0" Opacity="0.5" Margin="0,6,0,0"/>
+
+            <ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden" Margin="0,6,0,0">
+                <ScrollViewer.Resources>
+                    <Style TargetType="{x:Type ScrollBar}">
+                        <Setter Property="Height" Value="1"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                    <Grid Background="{TemplateBinding Background}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="6"/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Border Grid.Column="0" Grid.Row="1"
+                                            BorderBrush="Transparent"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            CornerRadius="5">
+                                            <Track x:Name="PART_Track">
+                                                <Track.Thumb>
+                                                    <Thumb Margin="10, 0, 10, 0" Background="#FFF"/>
+                                                </Track.Thumb>
+                                            </Track>
+                                        </Border>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ScrollViewer.Resources>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid MinHeight="170" MinWidth="110"  Margin="25, 18, 12, 21" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.ColumnSpan="2" Grid.Column="0" Grid.RowSpan="3" />
+                        <Rectangle Fill="#3D95B9" Opacity="0.5" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0"/>
+                        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Margin="27, 4, 23, 4" VerticalAlignment="Center">
+                            <Image Source="/Sources/Sunny.png" MaxWidth="60"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21°" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}"><Run Text="Влаж."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}"><Run Text="Ощущ."/><LineBreak/><Run Text="21°"/></TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Rectangle Grid.Row="8" Opacity="0.5" Margin="0,0,18,0" Fill="#F8C5B4" Grid.ColumnSpan="4" Grid.Column="4"/>
+        <StackPanel Orientation="Horizontal" Margin="244,53,0,16" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="4"/>
+        <Border Grid.Row="8" Padding="0" Margin="41,69,0,43" HorizontalAlignment="Left" Grid.Column="4" CornerRadius="0" BorderThickness="1.2" BorderBrush="White"/>
+
+        <WPF:CartesianChart x:Name="chart"
+        Grid.Row="8"
+        Margin="0,38,18,0"
+        Series="{Binding TemperatureData}" 
+        XAxes="{Binding TimeData}"
+        TooltipFindingStrategy="CompareAll"
+        Grid.ColumnSpan="4" Grid.Column="4" />
+        <Button Content="Температура" Margin="10,4,129,294" Click="TemperatureButton_Click" Grid.Row="8" Background="#3D95B9" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9" Grid.Column="4"/>
+        <Button Content="Ощущается как" Margin="323,4,332,294" Click="FeelsLikeButton_Click" Grid.Row="8" Grid.ColumnSpan="3" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9" Grid.Column="4">
+            <Button.Background>
+                <SolidColorBrush Color="#FF87B6CA" Opacity="0.9"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Давление" Click="PressureButton_Click" Grid.Column="6" Margin="122,4,10,294" Grid.Row="8" Background="#87B6CA" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
+
     </Grid>
 </Window>
