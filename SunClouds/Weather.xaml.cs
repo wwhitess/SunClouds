@@ -77,7 +77,11 @@ namespace SunClouds
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                this.DragMove();
+                Point mousePos = e.GetPosition(WindowTitleBar);
+                if (mousePos.Y >= 0 && mousePos.Y <= WindowTitleBar.RowDefinitions[0].ActualHeight && mousePos.X >= WindowTitleBar.ColumnDefinitions[0].Offset && mousePos.X <= WindowTitleBar.ColumnDefinitions[9].Offset + WindowTitleBar.ColumnDefinitions[9].ActualWidth)
+                {
+                    this.DragMove();
+                }
             }
         }
         private void SetLeftWeather()
