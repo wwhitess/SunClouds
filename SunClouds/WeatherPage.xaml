@@ -3,12 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:charts="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
       xmlns:local="clr-namespace:SunClouds"
       mc:Ignorable="d" 
       d:DesignHeight="742" d:DesignWidth="975"
       Title="WeatherPage">
-    
-    
+
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2.5*"/>
@@ -43,7 +44,7 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="10" Opacity="0.5"/>
-            
+
             <WrapPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock x:Name="tempNow" Style="{DynamicResource TextBlock}" Text="21&#xb0;" TextWrapping="NoWrap" FontSize="64" Grid.Row="1" MinHeight="75" Width="75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </WrapPanel>
@@ -107,7 +108,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
+
             <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
 
             <ScrollViewer Grid.Column="0" Grid.ColumnSpan="3" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
@@ -494,6 +495,53 @@
             </ScrollViewer>
         </Grid>
         <Rectangle Fill="#F8C5B4" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10"/>
+        <Border Grid.Column="5"
+                MinHeight="350"
+                Margin="0,0,10,10"
+                CornerRadius="10">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="0"
+                                  Opacity="0.5"
+                                  ShadowDepth="3"
+                                  Color="White" />
+            </Border.Effect>
+        </Border>
+
+        <Border Name="graphicsPanel"
+                Grid.Column="2"
+                Height="350"
+                Margin="0,0,10,10"
+                Padding="20,15"
+                BorderBrush="White"
+                CornerRadius="10"/>
+
+        <Border BorderThickness="1.2"
+                Padding="0"
+                HorizontalAlignment="Left"
+                BorderBrush="White"
+                CornerRadius="0" Margin="41,73,0,43" Grid.Row="4"/>
+
+        <charts:CartesianChart Name="chart"
+                               Grid.Row="4"
+                               Margin="0,41,0,0"
+                               
+                               Series="{Binding TemperatureData}" 
+                              
+                               XAxes="{Binding TimeData}"
+                               TooltipFindingStrategy="CompareAll"
+                               
+                               Grid.ColumnSpan="3" />
+
+
+
+        <Button Content="Температура" Margin="10,8,169,294" Click="TemperatureButton_Click" Grid.Row="4" Background="#3D95B9" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
+        <Button Content="Ощущается как" Margin="323,8,323,294" Click="FeelsLikeButton_Click" Grid.Row="4" Grid.ColumnSpan="3" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9">
+            <Button.Background>
+                <SolidColorBrush Color="#FF87B6CA" Opacity="0.9"/>
+            </Button.Background>
+        </Button>
+        <Button Content="Давление" Click="PressureButton_Click" Grid.Column="2" Margin="169,8,10,294" Grid.Row="4" Background="#87B6CA" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
 
     </Grid>
 </Page>
