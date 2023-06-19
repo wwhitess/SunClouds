@@ -52,9 +52,9 @@ namespace SunClouds
             feelsLikeNow.Text = Convert.ToString(Math.Round(data.Main.Feels_like) + deg);
             minTempNow.Text = Convert.ToString(Math.Round(data.Main.Temp_min) + deg);
             maxTempNow.Text = Convert.ToString(Math.Round(data.Main.Temp_max) + deg);
-            pressureNow.Text = Convert.ToString(data.Main.Pressure + pressureNow.Text);
+            pressureNow.Text = Convert.ToString(data.Main.Pressure + "мм рт. ст.");
             humidityNow.Text = Convert.ToString(data.Main.Humidity + "%");
-            windNow.Text = Convert.ToString(Math.Round(data.Wind.Speed) + windNow.Text);
+            windNow.Text = Convert.ToString(Math.Round(data.Wind.Speed) + "м\\с");
             windDegNow.Text = Convert.ToString(data.Wind.Deg);
         }
         private List<ISeries> _temperatureData;

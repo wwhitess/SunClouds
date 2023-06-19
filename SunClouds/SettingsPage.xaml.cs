@@ -1,7 +1,9 @@
-﻿using SunClouds.Helpers;
+﻿using LiveChartsCore.Kernel;
+using SunClouds.Helpers;
 using SunClouds.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,7 @@ namespace SunClouds
     public partial class SettingsPage : Page
     {
         private string TTemp;
+        private string CurrentCity;
         List<FavoriteCity> CityList = new List<FavoriteCity>();
         public SettingsPage()
         {
@@ -63,6 +66,12 @@ namespace SunClouds
                 DerSerLib.jsonclass.JsonSer(CityList, "FavoriteCity"); //перенести на кнопку сохранения.
 
                 Grid grid = new Grid();
+                grid.MouseDown += (sender, e) =>
+                {
+
+                    Weather existingWindow = Application.Current.Windows.Cast<Weather>().FirstOrDefault(window => window is Weather);
+                    existingWindow.getWeather(city.Name, TTemp);
+                };
                 grid.Height = 66;
                 grid.Width = 195;
                 grid.Margin = new Thickness(10, 10, 30, 10);
@@ -164,8 +173,8 @@ namespace SunClouds
         }
         private void GetCityList()
         {
-            CityList = DerSerLib.jsonclass.FileDeser(CityList, "FavoriteCity");
             int count = 0;
+            CityList = DerSerLib.jsonclass.FileDeser(CityList, "FavoriteCity");
 
             foreach (FavoriteCity data in CityList)
             {
@@ -177,6 +186,11 @@ namespace SunClouds
                 grid.Height = 66;
                 grid.Width = 195;
                 grid.Margin = new Thickness(10, 10, 30, 10);
+                grid.MouseDown += (sender, e) =>
+                {
+                    Weather existingWindow = Application.Current.Windows.Cast<Weather>().FirstOrDefault(window => window is Weather);
+                    existingWindow.getWeather(name, TTemp);
+                };
 
                 grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(33) });
                 grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(33) });
@@ -254,14 +268,12 @@ namespace SunClouds
                 Grid.SetColumn(blockCord, 0);
                 Grid.SetColumnSpan(blockCord, 2);
 
+
                 grid.Children.Add(blockCord);
 
                 WrapPanel.Children.Add(grid);
-
-                FavoriteCityBox.Text = "";
             }
         }
-
         private void DeleteBlock(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
