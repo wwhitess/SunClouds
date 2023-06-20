@@ -40,6 +40,7 @@ namespace SunClouds
         readonly string deg = "°";
 
         WeatherModel data;
+        HoursList weatherHourly;
 
         public WeatherPage()
         {
@@ -61,10 +62,12 @@ namespace SunClouds
             timer.Elapsed += new ElapsedEventHandler(AsyncEvent);
             timer.Enabled = true;
         }
-        internal void GetData(WeatherModel weather)
+        internal void GetData(WeatherModel weather, HoursList hourlyWeather)
         {
             data = weather;
+            weatherHourly = hourlyWeather;
             SetNow();
+            SetHourly();
         }
 
         internal void SetNow()
@@ -77,6 +80,23 @@ namespace SunClouds
             humidityNow.Text = Convert.ToString(data.Main.Humidity + "%");
             windNow.Text = Convert.ToString(Math.Round(data.Wind.Speed) + "м\\с");
             windDegNow.Text = Convert.ToString(data.Wind.Deg);
+        }
+        private void SetHourly()
+        {
+
+            for (int i = 0; i < 1; i++) //потрехчасовая погода хД. далее указать weatherHourly.list.Count()
+            {
+                string gethour = weatherHourly.list[i].dt_txt;
+                DateTime hour = DateTime.Parse(gethour);
+                TextBlock times = (TextBlock)this.FindName("time" + (i + 1));
+                TextBlock tempes = (TextBlock)this.FindName("temp" + (i + 1));
+                Run humbity = (Run)this.FindName("humbity" + (i + 1));
+                Run feelsLikes = (Run)this.FindName("feelsLike" + (i + 1));
+                times.Text = hour.ToString("HH:mm");
+                tempes.Text = Convert.ToString(Math.Round(weatherHourly.list[i].main.Temp) + deg);
+                humbity.Text = Convert.ToString(weatherHourly.list[i].main.Humidity + "%");
+                feelsLikes.Text = Convert.ToString(feelsLikes.Text + Math.Round(weatherHourly.list[i].main.Feels_like) + deg);
+            }
         }
         private async void AsyncEvent(object source, ElapsedEventArgs e)
         {

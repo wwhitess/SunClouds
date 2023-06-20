@@ -10,5 +10,6 @@ namespace SunClouds.Models
     {
         public double Speed { get; set; }
         public int Deg { get; set; }
+        public double gust { get; set; }
     }
 }
