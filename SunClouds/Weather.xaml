@@ -79,16 +79,16 @@
                     <ColumnDefinition Width="224"/>
                 </Grid.ColumnDefinitions>
                 <WrapPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-                    <TextBlock Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26"/>
+                    <TextBlock x:Name="time1" Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image Source="Sources/Sunny.png"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock  Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
-                    <Run Text="Ясно. 21&#xb0;"/>
+                    <Run x:Name="temp1" Text=""/>
                     <LineBreak/>
-                    <Run Text="Ощущается как 25&#xb0;"/>
+                    <Run x:Name="feelsLike1" Text="Ощущается как "/>
                     </TextBlock>
                 </WrapPanel>
             </Grid>
@@ -99,16 +99,16 @@
                     <ColumnDefinition Width="224"/>
                 </Grid.ColumnDefinitions>
                 <WrapPanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26"/>
+                    <TextBlock x:Name="time2" Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image Source="Sources/Cloudy.png" Width="60"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="23" Width="200" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
-                    <Run Text="Переменная"/>
-                    <Run Text="Облачность. 20&#xb0;"/>
-                    <Run Text="Ощущается как 19&#xb0;"/>
+                    <Run x:Name="temp2" Text=""/>
+                    <LineBreak/>
+                    <Run x:Name="feelsLike2" Text="Ощущается как "/>
                     </TextBlock>
                 </WrapPanel>
             </Grid>
@@ -119,16 +119,16 @@
                     <ColumnDefinition Width="224"/>
                 </Grid.ColumnDefinitions>
                 <WrapPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26"/>
+                    <TextBlock x:Name="time3" Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Image Source="Sources/Rainy.png" Width="60"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
-                        <Run Text="Дождь. 19&#xb0;"/>
+                        <Run x:Name="temp3" Text=""/>
                         <LineBreak/>
-                        <Run Text="Ощущается как 15&#xb0;"/>
+                        <Run x:Name="feelsLike3" Text="Ощущается как "/>
                     </TextBlock>
                 </WrapPanel>
             </Grid>

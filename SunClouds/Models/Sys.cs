@@ -13,5 +13,6 @@ namespace SunClouds.Models
         public string Country { get; set; }
         public int Sunrise { get; set; }
         public int Sunset { get; set; }
+        public string pod { get; set; }
     }
 }
