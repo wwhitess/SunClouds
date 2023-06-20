@@ -30,6 +30,13 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <Rectangle Style="{DynamicResource Rec1}" Opacity="0.5" Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="3"/>
+
+        <Rectangle Width="4" Fill="#000" Opacity="0.02" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="1" Grid.RowSpan="8"/>
+        <Rectangle Height="5" Fill="#000" Opacity="0.02" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="9" />
+        <Rectangle Height="5" Width="3" Fill="#000" Opacity="0.02" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="4" Grid.Row="9" />
+        <Rectangle Width="4" Fill="#000" Opacity="0.02" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="1" Grid.RowSpan="8"/>
+        <Rectangle Height="5" Width="3" Fill="#000" Opacity="0.02" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="0" Grid.Row="9" />
+
         <TextBlock Text="SunCloud" FontWeight="Bold" FontSize="20" Style="{DynamicResource TextBlock}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Rectangle  Style="{DynamicResource Rec2}" Grid.Row="3" Grid.Column="2"/>
         <Button Content="Узнать погоду" Style="{DynamicResource Button}" FontSize="15" Grid.Column="2" Grid.Row="7" Click="Search_Button_Click" />

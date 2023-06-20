@@ -494,54 +494,39 @@
                 </StackPanel>
             </ScrollViewer>
         </Grid>
-        <Rectangle Fill="#F8C5B4" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10"/>
-        <Border Grid.Column="5"
-                MinHeight="350"
-                Margin="0,0,10,10"
-                CornerRadius="10">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="0"
-                                  Opacity="0.5"
-                                  ShadowDepth="3"
-                                  Color="White" />
-            </Border.Effect>
-        </Border>
 
-        <Border Name="graphicsPanel"
-                Grid.Column="2"
-                Height="350"
-                Margin="0,0,10,10"
-                Padding="20,15"
-                BorderBrush="White"
-                CornerRadius="10"/>
 
-        <Border BorderThickness="1.2"
-                Padding="0"
+        <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Stretch">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
+
+            <Button Margin="5, 5, 5, 5" Grid.Row="0" Grid.Column="0" Content="Температура"  Click="TemperatureButton_Click"  Background="#3D95B9" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
+
+            <Button Margin="5, 5, 5, 5" Grid.Row="0" Grid.Column="1"  Content="Ощущается как"  Click="FeelsLikeButton_Click" Background="#87B6CA"  FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
+
+            <Button Margin="5, 5, 5, 5" Grid.Row="0" Grid.Column="2" Content="Давление" Click="PressureButton_Click"  Background="#87B6CA" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
+
+            <Border BorderThickness="1"
                 HorizontalAlignment="Left"
-                BorderBrush="White"
-                CornerRadius="0" Margin="41,73,0,43" Grid.Row="4"/>
+                BorderBrush="White" Margin="40,40,0,45" Grid.Row="1"/>
 
-        <charts:CartesianChart Name="chart"
-                               Grid.Row="4"
-                               Margin="0,41,0,0"
-                               
+            <charts:CartesianChart Name="chart"
+                               Grid.Row="1"
                                Series="{Binding TemperatureData}" 
-                              
                                XAxes="{Binding TimeData}"
                                TooltipFindingStrategy="CompareAll"
-                               
                                Grid.ColumnSpan="3" />
-
-
-
-        <Button Content="Температура" Margin="10,8,169,294" Click="TemperatureButton_Click" Grid.Row="4" Background="#3D95B9" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
-        <Button Content="Ощущается как" Margin="323,8,323,294" Click="FeelsLikeButton_Click" Grid.Row="4" Grid.ColumnSpan="3" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9">
-            <Button.Background>
-                <SolidColorBrush Color="#FF87B6CA" Opacity="0.9"/>
-            </Button.Background>
-        </Button>
-        <Button Content="Давление" Click="PressureButton_Click" Grid.Column="2" Margin="169,8,10,294" Grid.Row="4" Background="#87B6CA" FontFamily="Jura" FontSize="20" Foreground="White " FontWeight="Light" BorderBrush="{x:Null}" Opacity="0.9"/>
-
+        </Grid>
     </Grid>
 </Page>

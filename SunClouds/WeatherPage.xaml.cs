@@ -57,6 +57,8 @@ namespace SunClouds
             windNow.Text = Convert.ToString(Math.Round(data.Wind.Speed) + windNow.Text);
             windDegNow.Text = Convert.ToString(data.Wind.Deg);
         }
+
+
         private List<ISeries> _temperatureData;
         public List<ISeries> TemperatureData
         {
