@@ -7,7 +7,7 @@
       xmlns:local="clr-namespace:SunClouds"
       mc:Ignorable="d" 
       d:DesignHeight="742" d:DesignWidth="975"
-      Title="WeatherPage">
+      Title="WeatherPage" SizeChanged="Page_SizeChanged">
 
 
     <Grid>
@@ -44,7 +44,34 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="10" Opacity="0.5"/>
+            <Button x:Name="expandButton" Height="30" Click="ExpandButton_Click" Grid.Column="9" Grid.Row="1" RenderTransformOrigin="0.5,0.5" Margin="47,14,-47,15" Visibility="Collapsed">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-89.517"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Grid RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="-1.599"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Ellipse Fill="White"  Width="10" Height="10" Margin="27,10,68,10"/>
+                            <Ellipse Fill="White"  Width="10" Height="10" Margin="39,10,56,10"/>
+                            <Ellipse Fill="White"  Width="10" Height="10" Margin="51,10,44,10"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Button.Template>
 
+            </Button>
             <WrapPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock x:Name="tempNow" Style="{DynamicResource TextWeatherMain}" Text="21&#xb0;" TextWrapping="NoWrap" FontSize="64" Grid.Row="1" MinHeight="75" MinWidth="75" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             </WrapPanel>

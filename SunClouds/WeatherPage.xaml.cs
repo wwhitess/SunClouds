@@ -12,6 +12,7 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,6 +27,7 @@ using LiveChartsCore.Kernel.Sketches;
 using LiveCharts.Wpf;
 using LiveCharts;
 using System.Timers;
+using System.Globalization;
 
 
 namespace SunClouds
@@ -150,6 +152,38 @@ namespace SunClouds
         private void PressureButton_Click(object sender, RoutedEventArgs e)
         {
             //В процессе (Ожидание почасовой погоды)
+        }
+        public class PositionConverter : IMultiValueConverter
+        {
+            public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+            {
+                double windowWidth = (double)values[0];
+                double windowHeight = (double)values[1];
+
+                // Здесь вы можете настроить позицию кнопки в соответствии с размерами окна
+                double buttonMarginLeft = windowWidth - 50; // Пример: кнопка будет смещена от левого края на 50 пикселей
+                double buttonMarginTop = windowHeight - 50; // Пример: кнопка будет смещена от верхнего края на 50 пикселей
+
+                return new Thickness(buttonMarginLeft, buttonMarginTop, 0, 0);
+            }
+
+            public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+            {
+                throw new NotImplementedException();
+            }
+        }
+        private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double buttonMarginLeft = e.NewSize.Width - expandButton.ActualWidth - 10; // Пример: кнопка будет смещена на 10 пикселей от правого края
+            double buttonMarginTop = e.NewSize.Height - expandButton.ActualHeight - 10; // Пример: кнопка будет смещена на 10 пикселей от нижнего края
+
+            expandButton.Margin = new Thickness(buttonMarginLeft, buttonMarginTop, 0, 0);
+        }
+
+        private void ExpandButton_Click(object sender, RoutedEventArgs e)
+        {
+            Window.GetWindow(this).WindowState = WindowState.Normal;
+            expandButton.Visibility = Visibility.Collapsed;
         }
     }
 }
