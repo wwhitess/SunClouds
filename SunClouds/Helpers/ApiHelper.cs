@@ -15,7 +15,7 @@ namespace SunClouds.Helpers
 {
     internal class ApiHelper
     {
-        private static string DefaultUrl = "https://api.openweathermap.org/data/2.5/weather?appid=9de009545719c498b993ae116d758d99&units=";
+        private static string DefaultUrl = "https://api.openweathermap.org/data/2.5/weather?appid=9de009545719c498b993ae116d758d99&lang=ru&units=";
         private static string DefaultUrlHours = "http://api.openweathermap.org/data/2.5/forecast?appid=9de009545719c498b993ae116d758d99&lang=ru&cnt=8&units=";
         private static string TType = "metric";
 

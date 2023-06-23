@@ -54,12 +54,13 @@
         
         <Rectangle Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Opacity="0.5" Style="{DynamicResource RecRibbon}"/>
         <Border Style="{DynamicResource BorderRibbon}"  Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Margin="5, 0, 0, 0" HorizontalAlignment="Left" Height="19" Width="19">
-            <RibbonButton/>
+            <RadioButton Background="Transparent" BorderBrush="Transparent"/>
+
         </Border>
         <TextBlock Style="{DynamicResource TextBlockRibbon}"  Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Цельсий С&#xb0;"  VerticalAlignment="Center" />
         <Rectangle Style="{DynamicResource RecRibbon}"  Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2"/>
         <Border  Style="{DynamicResource BorderRibbon}"  Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Margin="5, 0, 0, 0" HorizontalAlignment="Left" Height="19" Width="19">
-            <RibbonButton/>
+            <RadioButton Background="Transparent" BorderBrush="Transparent"/>
         </Border>
         <TextBlock Style="{DynamicResource TextBlockRibbon}" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Фаренгейт F&#xb0;"  VerticalAlignment="Center"/>
     </Grid>
