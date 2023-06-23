@@ -57,6 +57,14 @@
         <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
     </Style>
 
+    <Style x:Key="AddCityButton" TargetType="Button">
+        <Setter Property="Background" Value="#87B6CA"/>
+        <Setter Property="BorderBrush" Value="#87B6CA"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Opacity" Value="0.5"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
+    </Style>
+
     <Style x:Key="TextBox" TargetType="TextBox">
         <Setter  Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
         <Setter Property="Background" Value="#87B6CA"/>
@@ -125,6 +133,14 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="White"/>
     </Style>
+
+    <Style TargetType="Button" x:Key="ButtonSave">
+        <Setter Property="Background" Value="#3D95B9"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    
     <Style TargetType="Rectangle" x:Key="RecRibbon">
         <Setter Property="Fill" Value="#3D95B9"/>
         <Setter Property="Opacity" Value="0.5"/>

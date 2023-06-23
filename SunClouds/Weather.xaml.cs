@@ -26,6 +26,9 @@ namespace SunClouds
             InitializeComponent();
             Frame.Content = weatherPage;
 
+            SizeChanged += WinSizeChanged;
+            ButtonVisibility();
+
             timer = new Timer();
             timer.Interval = 1000;
             timer.Elapsed += new ElapsedEventHandler(AsyncEvent);
@@ -160,6 +163,31 @@ namespace SunClouds
                                                weatherHourly.list[i].weather[0].Description.Substring(1) + 
                                                " " + Math.Round(weatherHourly.list[i].main.Temp) + deg);
                 feelsLikes.Text = Convert.ToString("Ощущается как " + Math.Round(weatherHourly.list[i].main.Feels_like) + deg);
+            }
+        }
+        private void ButtonStroke(object sender, RoutedEventArgs e)
+        {
+            Width = 1500;
+        }
+
+        private void WinSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ButtonVisibility();
+        }
+
+        private void ButtonVisibility()
+        {
+
+            if (Window.GetWindow(this).WindowState == WindowState.Normal)
+            {
+                if (ActualWidth < 1400)
+                {
+                    dButton.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    dButton.Visibility = Visibility.Collapsed;
+                }
             }
         }
     }
