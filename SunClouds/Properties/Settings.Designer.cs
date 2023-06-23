@@ -25,7 +25,7 @@ namespace SunClouds.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Москва")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DefaultCity {
             get {
                 return ((string)(this["DefaultCity"]));
@@ -37,7 +37,7 @@ namespace SunClouds.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("metric")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DefaultTType {
             get {
                 return ((string)(this["DefaultTType"]));

@@ -26,7 +26,10 @@ namespace SunClouds
 
             SystemEvents.TimeChanged += ThemeSelectTime;
 
-            SelectCity.Text = Properties.Settings.Default.DefaultCity;
+            if (Properties.Settings.Default.DefaultCity != "")
+            {
+                SelectCity.Text = Properties.Settings.Default.DefaultCity;
+            }
 
             SelectTheme();
         }
@@ -85,6 +88,12 @@ namespace SunClouds
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
+            if (Properties.Settings.Default.DefaultCity == "")
+            {
+                Properties.Settings.Default.DefaultCity = SelectCity.Text;
+                Properties.Settings.Default.Save();
+            }
+
             string TTemp = Properties.Settings.Default.DefaultTType;
             if (SelectCity.Text == "" ||
                 SelectCity.Text == "Выберите город") { MessageBox.Show("Выберете город"); }

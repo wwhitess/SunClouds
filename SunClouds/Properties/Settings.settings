@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="DefaultCity" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Москва</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DefaultTType" Type="System.String" Scope="User">
-      <Value Profile="(Default)">metric</Value>
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
