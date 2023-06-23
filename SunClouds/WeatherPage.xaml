@@ -102,6 +102,13 @@
                 <Run x:Name="windDegNow" Text="290"/>
                 </TextBlock>
             </WrapPanel>
+            <Button Click="Button_Click" Width="12" Height="60" Background="Transparent" BorderThickness="0" HorizontalAlignment="Right" Grid.Column="9" Grid.Row="1">
+                <StackPanel Orientation="Vertical">
+                    <Ellipse Fill="White" Width="10" Height="10" Margin="0,0,0,5" />
+                    <Ellipse Fill="White" Width="10" Height="10" Margin="0,5,0,5" />
+                    <Ellipse Fill="White" Width="10" Height="10" Margin="0,5,0,0" />
+                </StackPanel>
+            </Button>
         </Grid>
 
         <Grid Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0">

@@ -151,5 +151,14 @@ namespace SunClouds
         {
             //В процессе (Ожидание почасовой погоды)
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            // Maximize the window
+            Window window = Window.GetWindow(this);
+            if (window != null)
+            {
+                window.WindowState = WindowState.Maximized;
+            }
+        }
     }
 }
