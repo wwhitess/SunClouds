@@ -91,7 +91,7 @@
                     <TextBlock x:Name="time1" Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Source="Sources/Sunny.png"/>
+                    <Image x:Name="imgHours1" Source="Sources/Sunny.png"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock  Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
@@ -111,7 +111,7 @@
                     <TextBlock x:Name="time2" Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Source="Sources/Cloudy.png" Width="60"/>
+                    <Image x:Name="imgHours2" Source="Sources/Cloudy.png" Width="60"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="23" Width="200" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">
@@ -131,7 +131,7 @@
                     <TextBlock x:Name="time3" Style="{DynamicResource TextPogoda}" Text="16:00" FontSize="26"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Image Source="Sources/Rainy.png" Width="60"/>
+                    <Image x:Name="imgHours3" Source="Sources/Rainy.png" Width="60"/>
                 </WrapPanel>
                 <WrapPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Style="{DynamicResource TextPogoda}" Width="200" LineHeight="23" FontSize="20" TextWrapping="Wrap" TextAlignment="Left">

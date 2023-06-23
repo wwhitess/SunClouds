@@ -9,6 +9,7 @@ using System.Timers;
 using System.Drawing;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SunClouds
 {
@@ -19,7 +20,7 @@ namespace SunClouds
         WeatherModel weatherNow;
         HoursList weatherHourly;
         private Timer timer,check;
-        string deg = "°";
+        readonly string deg = "°";
 
         public Weather()
         {
@@ -38,16 +39,45 @@ namespace SunClouds
             check.Elapsed += new ElapsedEventHandler(CheckTime);
             check.Enabled = true;
         }
+        private Uri getImage(object position)
+        {
+            Uri weatherIcon;
+
+            switch (position)
+            {
+                case "Thunderstorm":
+                    weatherIcon = new Uri("Sources/Thunderstorm.png", UriKind.Relative);
+                    break;
+                case "Drizzle":
+                    weatherIcon = new Uri("Sources/Downpour.png", UriKind.Relative);
+                    break;
+                case "Rain":
+                    weatherIcon = new Uri("Sources/Rainy.png", UriKind.Relative);
+                    break;
+                case "Snow":
+                    weatherIcon = new Uri("Sources/Snow.png", UriKind.Relative);
+                    break;
+                case "Clear":
+                    weatherIcon = new Uri("Sources/Sunny.png", UriKind.Relative);
+                    break;
+                case "Clouds":
+                    weatherIcon = new Uri("Sources/Cloudy.png", UriKind.Relative);
+                    break;
+                default:
+                    weatherIcon = new Uri("Sources/Sunny.png", UriKind.Relative);
+                    break;
+            }
+
+            return weatherIcon;
+        }
         private async void AsyncEvent(object source, ElapsedEventArgs e)
         {
             if (DateTime.Now.Hour % 2 == 0 && DateTime.Now.Minute == 0)
             {
                 Dispatcher.Invoke(() =>
                 {
-                    
                     SetLeftWeather();
                     timer.Enabled = false;
-                    
                 });
             }
         }
@@ -121,43 +151,21 @@ namespace SunClouds
             discNow.Text = Convert.ToString(weatherNow.Weather[0].Description.Substring(0, 1).ToUpper() + (weatherNow.Weather[0].Description.Substring(1) + " "));
             tempNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Temp) + deg);
             feelLikeNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Feels_like) + deg);
-            Uri weatherIconNow;
-            
-            switch (weatherNow.Weather[0].Main)
-            {
-                case "Thunderstorm":
-                    weatherIconNow = new Uri("Sources\\Thunderstorm.png", UriKind.Relative);
-                    imgNow.Source = new BitmapImage(weatherIconNow);
-                    break;
-                case "Drizzle":
-                    weatherIconNow = new Uri("Sources\\Downpour.png", UriKind.Relative);
-                    imgNow.Source = new BitmapImage(weatherIconNow);
-                    break;
-                case "Rain":
-                    weatherIconNow = new Uri("Sources\\Rainy.png", UriKind.Relative);
-                    imgNow.Source = new BitmapImage(weatherIconNow);
-                    break;
-                case "Snow":
-                    weatherIconNow = new Uri("Sources\\Snow.png", UriKind.Relative);
-                    imgNow.Source = new BitmapImage(weatherIconNow);
-                    break;
-                case "Clear":
-                    weatherIconNow = new Uri("Sources\\Sunny.png", UriKind.Relative);
-                    imgNow.Source = new BitmapImage(weatherIconNow);
-                    break;
-                case "Clouds":
-                    weatherIconNow = new Uri("Sources\\Cloudy.png", UriKind.Relative);
-                    imgNow.Source = new BitmapImage(weatherIconNow);
-                    break;
-            }
+
+            Uri uri = getImage(weatherNow.Weather[0].Main);
+
+            imgNow.Source = new BitmapImage(uri);
 
             for (int i = 0; i < 3; i++) //потрехчасовая погода хД
             {
+                uri = getImage(weatherHourly.list[i].weather[0].Main);
                 string gethour = weatherHourly.list[i].dt_txt;
+                System.Windows.Controls.Image images = (System.Windows.Controls.Image)this.FindName("imgHours" + (i + 1));
                 DateTime hour = DateTime.Parse(gethour);
                 TextBlock times = (TextBlock)this.FindName("time" + (i + 1));
                 Run tempes = (Run)this.FindName("temp" + (i + 1));
                 Run feelsLikes = (Run)this.FindName("feelsLike" + (i + 1));
+                images.Source = new BitmapImage(uri);
                 times.Text = hour.ToString("HH:mm");
                 tempes.Text = Convert.ToString(weatherHourly.list[i].weather[0].Description.Substring(0, 1).ToUpper() +
                                                weatherHourly.list[i].weather[0].Description.Substring(1) + 
@@ -165,6 +173,7 @@ namespace SunClouds
                 feelsLikes.Text = Convert.ToString("Ощущается как " + Math.Round(weatherHourly.list[i].main.Feels_like) + deg);
             }
         }
+
         private void ButtonStroke(object sender, RoutedEventArgs e)
         {
             Width = 1500;
