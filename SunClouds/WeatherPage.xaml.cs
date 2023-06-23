@@ -2,38 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics.SymbolStore;
-using System.Linq;
-using LiveChartsCore.SkiaSharpView.Painting;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LiveChartsCore.SkiaSharpView.WPF;
-using System.DirectoryServices.ActiveDirectory;
 using System.Runtime.CompilerServices;
-using LiveChartsCore.Kernel.Sketches;
-using LiveCharts.Wpf;
 using LiveCharts;
 using System.Timers;
-
+using LiveCharts.Wpf;
 
 namespace SunClouds
 {
     /// <summary>
     /// Логика взаимодействия для WeatherPage.xaml
     /// </summary>
-   
+
     public partial class WeatherPage : Page, INotifyPropertyChanged
     {
         private Timer timer;
@@ -45,13 +32,6 @@ namespace SunClouds
         public WeatherPage()
         {
             InitializeComponent();
-
-
-            TemperatureData = new List<ISeries>
-            {
-                new LineSeries<double> { Values = new ChartValues<double> { 10, 20, 30, 40, 50 } }
-
-            };
 
             TimeData = new List<string> { "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00" };
 
@@ -67,10 +47,8 @@ namespace SunClouds
             data = weather;
             weatherHourly = hourlyWeather;
             SetNow();
-           
             SetHourly();
         }
-
         internal void SetNow()
         {
             tempNow.Text = Convert.ToString(Math.Round(data.Main.Temp) + deg);
@@ -160,6 +138,7 @@ namespace SunClouds
                         break;
                 }
 
+
                 image.Source = new BitmapImage(weatherIcon);
                 image.MaxWidth = 45;
                 imageStackPanel.Children.Add(image);
@@ -230,11 +209,25 @@ namespace SunClouds
                 grid.Children.Add(feelsLikeStackPanel);
 
                 StackHour.Children.Add(grid);
+
             }
+            TemperatureData = new List<ISeries>
+            {
+              new LineSeries<double> { Values = new ChartValues<double> { 
+                  weatherHourly.list[0].main.Temp,
+                  weatherHourly.list[1].main.Temp, 
+                  weatherHourly.list[2].main.Temp, 
+                  weatherHourly.list[3].main.Temp, 
+                  weatherHourly.list[4].main.Temp,
+                  weatherHourly.list[5].main.Temp,
+                  weatherHourly.list[6].main.Temp,
+                  weatherHourly.list[7].main.Temp} 
+              }
+            };
         }
         private async void AsyncEvent(object source, ElapsedEventArgs e)
         {
-            if (DateTime.Now.Hour % 2 == 0)
+            if (DateTime.Now.Hour % 2 == 0 && DateTime.Now.Minute == 0)
             {
                 Dispatcher.Invoke(() =>
                 {
@@ -295,5 +288,6 @@ namespace SunClouds
                 window.WindowState = WindowState.Maximized;
             }
         }
+
     }
 }

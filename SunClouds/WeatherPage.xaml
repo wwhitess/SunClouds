@@ -179,12 +179,13 @@
                 CornerRadius="0" Margin="40,50,0,40" Grid.Row="1"/>
 
             <charts:CartesianChart Name="chart"
-                               Grid.Row="1"
-                               Series="{Binding TemperatureData}" 
-                               XAxes="{Binding TimeData}"
-                               TooltipFindingStrategy="CompareAll"
-                               Grid.ColumnSpan="3">
+                       Grid.Row="1"
+                       Series="{Binding TemperatureData}"
+                       XAxes="{Binding TimeData}"
+                       TooltipFindingStrategy="CompareAll"
+                       Grid.ColumnSpan="3">
             </charts:CartesianChart>
+
         </Grid>
     </Grid>
 </Page>
