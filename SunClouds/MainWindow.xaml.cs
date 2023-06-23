@@ -85,12 +85,13 @@ namespace SunClouds
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
+            string TTemp = Properties.Settings.Default.DefaultTType;
             if (SelectCity.Text == "" ||
                 SelectCity.Text == "Выберите город") { MessageBox.Show("Выберете город"); }
             else
             {
                 Weather weather = new Weather();
-                weather.getWeather(SelectCity.Text, "");
+                weather.getWeather(SelectCity.Text, TTemp);
                 weather.Show();
                 Close();
             }

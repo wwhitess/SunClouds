@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace SunClouds
 {
@@ -24,7 +25,7 @@ namespace SunClouds
     /// </summary>
     public partial class SettingsPage : Page
     {
-        private string TTemp;
+        private string TypeTemp;
         private string CurrentCity;
         List<FavoriteCity> CityList = new List<FavoriteCity>();
         public SettingsPage()
@@ -32,12 +33,13 @@ namespace SunClouds
             InitializeComponent();
             GetCityList();
         }
-        public void SetSettings(string TTemp)
+        public void SetSettings(string TTemp, string city)
         {
+            CurrentCity = city;
+            TypeTemp = TTemp;
             SetCity.Text = Properties.Settings.Default.DefaultCity;
-            this.TTemp = TTemp;
-            /*if (TTemp == "metric") { первый рибон }
-            else { второй рибон}*/
+            if (TTemp == "metric") { celsiusType.IsChecked = true; }
+            else { fahrenheitType.IsChecked = true; }
         }
 
         private void ClearBox(object sender, RoutedEventArgs e)
@@ -57,20 +59,18 @@ namespace SunClouds
             }
             else
             {
-                var json = ApiHelper.Get(FavoriteCityBox.Text, TTemp);
+                var json = ApiHelper.Get(FavoriteCityBox.Text, TypeTemp);
                 var result = DerSerLib.jsonclass.JsonDeser<WeatherModel>(json);
                 double lon = result.Coord.Lon;
                 double lat = result.Coord.Lat;
                 FavoriteCity city = new FavoriteCity(FavoriteCityBox.Text, lon, lat);
                 CityList.Add(city);
-                DerSerLib.jsonclass.JsonSer(CityList, "FavoriteCity"); //перенести на кнопку сохранения.
 
                 Grid grid = new Grid();
                 grid.MouseDown += (sender, e) =>
                 {
 
-                    Weather existingWindow = Application.Current.Windows.Cast<Weather>().FirstOrDefault(window => window is Weather);
-                    existingWindow.getWeather(city.Name, TTemp);
+                    toGetWeather(city.Name, TypeTemp);
                 };
                 grid.Height = 66;
                 grid.Width = 195;
@@ -159,18 +159,7 @@ namespace SunClouds
                 FavoriteCityBox.Text = "";
             }
         }
-        private void Save(object sender, RoutedEventArgs e)
-        {
-            if (SetCity.Text == "" || SetCity.Text.Length <= 2)
-            {
-                MessageBox.Show("Выберите город");
-            }
-            else
-            {
-                Properties.Settings.Default.DefaultCity = SetCity.Text; //перенести в кнопку сохранения.
-                Properties.Settings.Default.Save();
-            }
-        }
+       
         private void GetCityList()
         {
             int count = 0;
@@ -188,8 +177,7 @@ namespace SunClouds
                 grid.Margin = new Thickness(10, 10, 30, 10);
                 grid.MouseDown += (sender, e) =>
                 {
-                    Weather existingWindow = Application.Current.Windows.Cast<Weather>().FirstOrDefault(window => window is Weather);
-                    existingWindow.getWeather(name, TTemp);
+                    toGetWeather(name, TypeTemp);
                 };
 
                 grid.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(33) });
@@ -281,7 +269,40 @@ namespace SunClouds
             int index = WrapPanel.Children.IndexOf(grid);
             WrapPanel.Children.Remove(grid);
             CityList.RemoveAt(index);
-            DerSerLib.jsonclass.JsonSer(CityList, "FavoriteCity"); //после перенесения в логику кнопки сохранения - удалить!!!
+        }
+        private void toGetWeather(string city, string TType)
+        {
+            Weather existingWindow = Application.Current.Windows.Cast<Weather>().FirstOrDefault(window => window is Weather);
+            existingWindow.getWeather(city, TType);
+        }
+
+        private void celsius_click(object sender, RoutedEventArgs e)
+        {
+            fahrenheitType.IsChecked = false;
+            TypeTemp = "metric";
+            toGetWeather(CurrentCity, TypeTemp);
+        }
+
+        private void fahrenheit_click(object sender, RoutedEventArgs e)
+        {
+            celsiusType.IsChecked = false;
+            TypeTemp = "imperial";
+            toGetWeather(CurrentCity, TypeTemp);
+        }
+
+        private void Save(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.DefaultTType = TypeTemp; //Сохранение текущего формата температуры
+            DerSerLib.jsonclass.JsonSer(CityList, "FavoriteCity"); //сохранение изменений в списке избранных городов.
+            if (SetCity.Text == "" || SetCity.Text.Length <= 2) //сохранение нового города по умолчанию.
+            {
+                MessageBox.Show("Выберите город");
+            }
+            else
+            {
+                Properties.Settings.Default.DefaultCity = SetCity.Text; 
+                Properties.Settings.Default.Save();
+            }
         }
     }
 }

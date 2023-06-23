@@ -34,5 +34,17 @@ namespace SunClouds.Properties {
                 this["DefaultCity"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("metric")]
+        public string DefaultTType {
+            get {
+                return ((string)(this["DefaultTType"]));
+            }
+            set {
+                this["DefaultTType"] = value;
+            }
+        }
     }
 }

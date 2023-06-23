@@ -64,7 +64,7 @@ namespace SunClouds
             weatherNow = result;
             weatherHourly = resultHours;
             toCity.Text = city;
-            settingsPage.SetSettings(tempType);
+            settingsPage.SetSettings(tempType, city);
             weatherPage.GetData(result, resultHours);
             SetLeftWeather();
         }
@@ -159,7 +159,7 @@ namespace SunClouds
                 tempes.Text = Convert.ToString(weatherHourly.list[i].weather[0].Description.Substring(0, 1).ToUpper() +
                                                weatherHourly.list[i].weather[0].Description.Substring(1) + 
                                                " " + Math.Round(weatherHourly.list[i].main.Temp) + deg);
-                feelsLikes.Text = Convert.ToString(feelsLikes.Text + Math.Round(weatherHourly.list[i].main.Feels_like) + deg);
+                feelsLikes.Text = Convert.ToString("Ощущается как " + Math.Round(weatherHourly.list[i].main.Feels_like) + deg);
             }
         }
     }
