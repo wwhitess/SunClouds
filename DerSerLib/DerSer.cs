@@ -18,7 +18,7 @@ namespace DerSerLib
             return Mytype;
         }
 
-        public static T JsonDeser<T>(string fileName) //Для десереиализации данных из api.
+        public static T JsonDeser<T>(string fileName)
         {
             T Mytype = JsonConvert.DeserializeObject<T>(fileName);
             return Mytype;

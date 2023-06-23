@@ -156,7 +156,7 @@ namespace SunClouds
 
             imgNow.Source = new BitmapImage(uri);
 
-            for (int i = 0; i < 3; i++) //потрехчасовая погода хД
+            for (int i = 0; i < 3; i++)
             {
                 uri = getImage(weatherHourly.list[i].weather[0].Main);
                 string gethour = weatherHourly.list[i].dt_txt;

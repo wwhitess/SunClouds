@@ -17,10 +17,6 @@ using LiveCharts.Wpf;
 
 namespace SunClouds
 {
-    /// <summary>
-    /// Логика взаимодействия для WeatherPage.xaml
-    /// </summary>
-
     public partial class WeatherPage : Page, INotifyPropertyChanged
     {
         private Timer timer;
@@ -137,7 +133,6 @@ namespace SunClouds
                         weatherIcon = new Uri("Sources/Sunny.png", UriKind.Relative);
                         break;
                 }
-
 
                 image.Source = new BitmapImage(weatherIcon);
                 image.MaxWidth = 45;
