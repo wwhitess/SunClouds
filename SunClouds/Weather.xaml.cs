@@ -115,6 +115,7 @@ namespace SunClouds
         }
         private void SetLeftWeather()
         {
+            discNow.Text = Convert.ToString(weatherNow.Weather[0].Description.Substring(0, 1).ToUpper() + (weatherNow.Weather[0].Description.Substring(1) + " "));
             tempNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Temp) + deg);
             feelLikeNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Feels_like) + deg);
             Uri weatherIconNow;
@@ -145,7 +146,6 @@ namespace SunClouds
                     weatherIconNow = new Uri("Sources\\Cloudy.png", UriKind.Relative);
                     imgNow.Source = new BitmapImage(weatherIconNow);
                     break;
-
             }
 
             for (int i = 0; i < 3; i++) //потрехчасовая погода хД
