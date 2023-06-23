@@ -50,8 +50,20 @@
         <Button Click="ClearAddBox" Grid.Row="6" Grid.Column="8" Content="X" Style="{DynamicResource ClearBut}" FontSize="15" VerticalContentAlignment="Center"  HorizontalContentAlignment="Right" Margin="0,0,5,0"/>
         <Button x:Name="AddFavoriteCity" Content="Добавить город" Style="{DynamicResource Button}" Grid.Row="6" Grid.Column="9" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" Click="AddFavoriteCity_click"/>
         <TextBlock Text="Исчисление градусов:" Grid.Row="8"  Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Style="{DynamicResource TextBlock}"/>
-        <RibbonButton Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>
-        <RibbonButton Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Style="{DynamicResource RibbonStyle}" Opacity="0.5"/>
+
+
+        <Rectangle Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Style="{DynamicResource RecRibbon}"/>
+        <Border Style="{DynamicResource BorderRibbon}" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" Margin="5, 0, 0, 0" HorizontalAlignment="Left">
+            <RibbonButton/>
+        </Border>
+        <TextBlock Style="{DynamicResource TextBlockRibbon}" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Цельсий С&#xb0;" VerticalAlignment="Center"/>
+
+        <Rectangle Style="{DynamicResource RecRibbon}" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2"/>
+        <Border Style="{DynamicResource BorderRibbon}" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" Margin="5, 0, 0, 0" HorizontalAlignment="Left">
+            <RibbonButton/>
+        </Border>
+        <TextBlock Style="{DynamicResource TextBlockRibbon}" Grid.Row="9" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Фаренгейт F&#xb0;" VerticalAlignment="Center"/>
+
         <Button Content="Сохранить" Click="Save" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="10" Style="{DynamicResource Button}" FontSize="15"/>
     </Grid>
 </Page>
