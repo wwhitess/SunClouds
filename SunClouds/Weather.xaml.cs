@@ -27,7 +27,7 @@ namespace SunClouds
         WeatherPage weatherPage = new WeatherPage();
         WeatherModel weatherNow;
         HoursList weatherHourly;
-        private Timer timer;
+        private Timer timer,check;
         string deg = "°";
 
         public Weather()
@@ -39,16 +39,29 @@ namespace SunClouds
             timer.Interval = 1000;
             timer.Elapsed += new ElapsedEventHandler(AsyncEvent);
             timer.Enabled = true;
+            check = new Timer();
+            check.Interval = 1000;
+            check.Elapsed += new ElapsedEventHandler(CheckTime);
+            check.Enabled = true;
         }
         private async void AsyncEvent(object source, ElapsedEventArgs e)
         {
-            if (DateTime.Now.Hour % 2 == 0)
+            if (DateTime.Now.Hour % 2 == 0 && DateTime.Now.Minute == 0)
             {
                 Dispatcher.Invoke(() =>
                 {
+                    
                     SetLeftWeather();
+                    timer.Enabled = false;
                     
                 });
+            }
+        }
+        private async void CheckTime(object source, ElapsedEventArgs e)
+        {
+            if (DateTime.Now.Hour % 2 == 0 && DateTime.Now.Minute == 1)
+            {
+                timer.Enabled = true;
             }
         }
         public void getWeather(string city, string tempType)
