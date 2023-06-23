@@ -1,23 +1,14 @@
 ﻿using SunClouds.Helpers;
 using SunClouds.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Markup;
+using System.Timers;
+using System.Drawing;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Timers;
-using Newtonsoft.Json.Linq;
-using System.Xml.Linq;
 
 namespace SunClouds
 {
@@ -115,7 +106,7 @@ namespace SunClouds
         {
             if (e.ChangedButton == MouseButton.Left)
             {
-                Point mousePos = e.GetPosition(WindowTitleBar);
+                System.Windows.Point mousePos = e.GetPosition(WindowTitleBar);
                 if (mousePos.Y >= 0 && mousePos.Y <= WindowTitleBar.RowDefinitions[0].ActualHeight && mousePos.X >= WindowTitleBar.ColumnDefinitions[0].Offset && mousePos.X <= WindowTitleBar.ColumnDefinitions[9].Offset + WindowTitleBar.ColumnDefinitions[9].ActualWidth)
                 {
                     this.DragMove();
@@ -126,7 +117,37 @@ namespace SunClouds
         {
             tempNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Temp) + deg);
             feelLikeNow.Text = Convert.ToString(Math.Round(weatherNow.Main.Feels_like) + deg);
+            Uri weatherIconNow;
             
+            switch (weatherNow.Weather[0].Main)
+            {
+                case "Thunderstorm":
+                    weatherIconNow = new Uri("Sources\\Thunderstorm.png", UriKind.Relative);
+                    imgNow.Source = new BitmapImage(weatherIconNow);
+                    break;
+                case "Drizzle":
+                    weatherIconNow = new Uri("Sources\\Downpour.png", UriKind.Relative);
+                    imgNow.Source = new BitmapImage(weatherIconNow);
+                    break;
+                case "Rain":
+                    weatherIconNow = new Uri("Sources\\Rainy.png", UriKind.Relative);
+                    imgNow.Source = new BitmapImage(weatherIconNow);
+                    break;
+                case "Snow":
+                    weatherIconNow = new Uri("Sources\\Snow.png", UriKind.Relative);
+                    imgNow.Source = new BitmapImage(weatherIconNow);
+                    break;
+                case "Clear":
+                    weatherIconNow = new Uri("Sources\\Sunny.png", UriKind.Relative);
+                    imgNow.Source = new BitmapImage(weatherIconNow);
+                    break;
+                case "Clouds":
+                    weatherIconNow = new Uri("Sources\\Cloudy.png", UriKind.Relative);
+                    imgNow.Source = new BitmapImage(weatherIconNow);
+                    break;
+
+            }
+
             for (int i = 0; i < 3; i++) //потрехчасовая погода хД
             {
                 string gethour = weatherHourly.list[i].dt_txt;

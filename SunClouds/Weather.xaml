@@ -62,7 +62,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <WrapPanel Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">
-                    <Image Source="Sources/Sunny.png" Width="160" Height="130"/>
+                    <Image x:Name="imgNow" Source="Sources/Sunny.png" Width="160" Height="130"/>
                 </WrapPanel>
                 <WrapPanel Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
                     <TextBlock  Style="{DynamicResource TextPogoda}" LineHeight="31" FontSize="24" TextWrapping="Wrap" TextAlignment="Right" Width="180">
