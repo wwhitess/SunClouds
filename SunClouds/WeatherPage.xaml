@@ -163,21 +163,21 @@
                             <Image Source="Sources/Sunny.png" MaxWidth="60"/>
                         </StackPanel>
                         <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center">
-                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
-                            <TextBlock Foreground="#fff" HorizontalAlignment="Center" Text="21&#xb0;" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock x:Name="time1" Foreground="#fff" HorizontalAlignment="Center" Text="16:00" FontSize="20" Style="{DynamicResource TextBlock}"/>
+                            <TextBlock x:Name="temp1" Foreground="#fff" HorizontalAlignment="Center" Text="21&#xb0;" FontWeight="Bold" FontSize="26" Style="{DynamicResource TextBlock}"/>
                         </StackPanel>
                         <StackPanel Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
                             <TextBlock TextAlignment="Center" VerticalAlignment="Center" Foreground="#fff" FontSize="16" Style="{DynamicResource TextBlock}">
-                                <Run Text="Влаж."/>
+                                <Run x:Name="humbity1" Text="Влаж."/>
                                 <LineBreak/>
-                                <Run Text="21&#xb0;"/>
+                                <Run Text=""/>
                             </TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
                             <TextBlock TextAlignment="Center" Foreground="#fff" FontSize="16" VerticalAlignment="Center" Style="{DynamicResource TextBlock}">
                                 <Run Text="Ощущ."/>
                                 <LineBreak/>
-                                <Run Text="21&#xb0;"/>
+                                <Run x:Name="feelsLike1" Text=""/>
                             </TextBlock>
                         </StackPanel>
                     </Grid>

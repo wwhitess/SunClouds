@@ -8,14 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Sources\Bizzard.png" />
     <None Remove="Sources\Cloudy.png" />
     <None Remove="Sources\Day.png" />
+    <None Remove="Sources\Downpour.png" />
     <None Remove="Sources\Jura-Regular.ttf" />
     <None Remove="Sources\Line.png" />
     <None Remove="Sources\MorningEvening.png" />
     <None Remove="Sources\Night.png" />
     <None Remove="Sources\Rainy.png" />
+    <None Remove="Sources\Snow.png" />
     <None Remove="Sources\Sunny.png" />
+    <None Remove="Sources\Thunderstorm.png" />
+    <None Remove="Sources\Wind.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,14 +36,35 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Sources\Cloudy.png" />
+    <Resource Include="Sources\Bizzard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Sources\Cloudy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Sources\Day.png" />
+    <Resource Include="Sources\Downpour.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Sources\Jura-Regular.ttf" />
     <Resource Include="Sources\Line.png" />
     <Resource Include="Sources\MorningEvening.png" />
     <Resource Include="Sources\Night.png" />
-    <Resource Include="Sources\Rainy.png" />
-    <Resource Include="Sources\Sunny.png" />
+    <Resource Include="Sources\Rainy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Sources\Snow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Sources\Sunny.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Sources\Thunderstorm.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Sources\Wind.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
