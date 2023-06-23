@@ -617,25 +617,35 @@
                 </StackPanel>
             </ScrollViewer>
         </Grid>
+        <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
 
-        <Rectangle Fill="#F8C5B4" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Opacity="0.5"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10"/>
-        <Border BorderThickness="1.2"
+            <Button Grid.Column="0" Margin="5, 5, 5, 5" Content="Температура" Click="TemperatureButton_Click" FontSize="20" Style="{DynamicResource ButtonTemp}" FontWeight="Bold"/>
+            <Button Grid.Column="1" Margin="5, 5, 5, 5" Content="Ощущается как" Click="FeelsLikeButton_Click" FontSize="20" Style="{DynamicResource Button}" FontWeight="Bold" />
+            <Button Grid.Column="2" Margin="5, 5, 5, 5" Content="Давление" Click="PressureButton_Click" FontSize="20" Style="{DynamicResource Button}" FontWeight="Bold" />
+
+            <Border BorderThickness="1"
                 Padding="0"
                 HorizontalAlignment="Left"
                 BorderBrush="White"
-                CornerRadius="0" Margin="41,73,0,43" Grid.Row="4"/>
+                CornerRadius="0" Margin="40,50,0,40" Grid.Row="1"/>
 
-        <charts:CartesianChart Name="chart"
-                               Grid.Row="4"
-                               Margin="0,41,0,0"
+            <charts:CartesianChart Name="chart"
+                               Grid.Row="1"
                                Series="{Binding TemperatureData}" 
                                XAxes="{Binding TimeData}"
                                TooltipFindingStrategy="CompareAll"
-                               Grid.ColumnSpan="3" />
-        <Button Content="Температура" Margin="10,8,169,294" Click="TemperatureButton_Click" Grid.Row="4" FontSize="20" Style="{DynamicResource ButtonTemp}" FontWeight="Bold"/>
-        <Button Content="Ощущается как" Margin="323,8,323,294" Click="FeelsLikeButton_Click" Grid.Row="4" Grid.ColumnSpan="3" FontSize="20" Style="{DynamicResource Button}" FontWeight="Bold" />
-        <Button Content="Давление" Click="PressureButton_Click" Grid.Column="2" Margin="169,8,10,294" Grid.Row="4" FontSize="20" Style="{DynamicResource Button}" FontWeight="Bold" />
-
+                               Grid.ColumnSpan="3">
+            </charts:CartesianChart>
+        </Grid>
     </Grid>
 </Page>
