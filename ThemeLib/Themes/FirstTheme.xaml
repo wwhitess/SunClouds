@@ -13,6 +13,13 @@
         <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
     </Style>
 
+    <Style x:Key="AddCityButton" TargetType="Button">
+        <Setter Property="Background" Value="#87B6CA"/>
+        <Setter Property="BorderBrush" Value="#87B6CA"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
+    </Style>
+
     <Style x:Key="TextBox" TargetType="TextBox">
         <Setter  Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
         <Setter Property="Background" Value="#87B6CA"/>
@@ -39,7 +46,7 @@
 
     <Style TargetType="Button" x:Key="ControlButtonStyle">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="#87B6CA" />
+        <Setter Property="Foreground" Value="#3D95B9" />
         <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura" />
         <Setter Property="FontSize" Value="30" />
         <Setter Property="BorderThickness" Value="0" />
@@ -61,14 +68,14 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Background="Transparent" BorderBrush="#87B6CA" BorderThickness="2">
+                    <Border Background="Transparent" BorderBrush="#3D95B9" BorderThickness="2">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="#87B6CA" />
-        <Setter Property="Foreground" Value="#87B6CA" />
+        <Setter Property="Background" Value="#3D95B9" />
+        <Setter Property="Foreground" Value="#3D95B9" />
         <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura" />
         <Setter Property="FontSize" Value="30" />
         <Setter Property="BorderThickness" Value="0" />
@@ -82,7 +89,7 @@
     </Style>
 
     <Style TargetType="TextBlock" x:Key="TextWeatherMain">
-        <Setter Property="Foreground" Value="#3D95B9"/>
+        <Setter Property="Foreground" Value="#87B6CA"/>
         <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
     </Style>
 
@@ -128,6 +135,13 @@
     <Style TargetType="Rectangle" x:Key="RecRibbon">
         <Setter Property="Fill" Value="#3D95B9"/>
         <Setter Property="Opacity" Value="0.5"/>
+    </Style>
+
+    <Style TargetType="Button" x:Key="ButtonSave">
+        <Setter Property="Background" Value="#87B6CA"/>
+        <Setter Property="FontFamily" Value="pack://application:,,,/SunClouds;component/Sources/#Jura"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
     </Style>
 
     <Style TargetType="Border" x:Key="BorderRibbon">

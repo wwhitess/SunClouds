@@ -24,7 +24,6 @@ namespace SunClouds.Helpers
         {
             try
             {
-
                 if (tempType == "")
                 {
                     tempType = TType;
@@ -42,7 +41,6 @@ namespace SunClouds.Helpers
         {
             try
             {
-
                 if (tempType == "") { tempType = TType; }
                 HttpClient client = new HttpClient();
                 HttpResponseMessage response = client.GetAsync(DefaultUrlHours + tempType + "&q=" + city).Result;
@@ -53,7 +51,5 @@ namespace SunClouds.Helpers
                 return "Ошибка получения информации от API: " + ex.Message;
             }
         }
-
-
     }
 }

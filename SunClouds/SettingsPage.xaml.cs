@@ -20,9 +20,6 @@ using System.Xml.Linq;
 
 namespace SunClouds
 {
-    /// <summary>
-    /// Логика взаимодействия для SettingsPage.xaml
-    /// </summary>
     public partial class SettingsPage : Page
     {
         private string TypeTemp;
@@ -292,9 +289,9 @@ namespace SunClouds
 
         private void Save(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.DefaultTType = TypeTemp; //Сохранение текущего формата температуры
-            DerSerLib.jsonclass.JsonSer(CityList, "FavoriteCity"); //сохранение изменений в списке избранных городов.
-            if (SetCity.Text == "" || SetCity.Text.Length <= 2) //сохранение нового города по умолчанию.
+            Properties.Settings.Default.DefaultTType = TypeTemp; 
+            DerSerLib.jsonclass.JsonSer(CityList, "FavoriteCity");
+            if (SetCity.Text == "" || SetCity.Text.Length <= 2)
             {
                 MessageBox.Show("Выберите город");
             }

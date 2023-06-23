@@ -263,7 +263,6 @@ namespace SunClouds
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-     
         }
         private void TemperatureButton_Click(object sender, RoutedEventArgs e)
         {
@@ -279,15 +278,5 @@ namespace SunClouds
         {
             //В процессе (Ожидание почасовой погоды)
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            // Maximize the window
-            Window window = Window.GetWindow(this);
-            if (window != null)
-            {
-                window.WindowState = WindowState.Maximized;
-            }
-        }
-
     }
 }
