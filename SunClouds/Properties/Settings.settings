@@ -5,5 +5,8 @@
     <Setting Name="DefaultCity" Type="System.String" Scope="User">
       <Value Profile="(Default)">Москва</Value>
     </Setting>
+    <Setting Name="DefaultTType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">metric</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
