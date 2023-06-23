@@ -35,6 +35,7 @@
             <ColumnDefinition Width="2.5*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="10" VerticalAlignment="Top" Height="5" Fill="#000" Opacity="0.07"/>
         <TextBlock Text="Ваш основной город:" Grid.Column="0" Grid.ColumnSpan="10" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="28" Style="{DynamicResource TextBlock}"/>
 
         <TextBox Text="Город" x:Name="SetCity" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" Style="{DynamicResource TextBox}"/>

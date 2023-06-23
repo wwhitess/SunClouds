@@ -30,6 +30,8 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="4" Grid.Row="2" Grid.RowSpan="8" HorizontalAlignment="Left" Width="4" Fill="#000" Opacity="0.06"/>
+        <Rectangle Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="3" VerticalAlignment="Top" Height="5" Fill="#000" Opacity="0.07"/>
         <Rectangle Style="{DynamicResource Rec1}" Opacity="0.5" Grid.Row="2" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="3"/>
         <TextBlock Text="SunClouds" FontWeight="Bold" FontSize="20" Style="{DynamicResource TextBlock}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Rectangle  Style="{DynamicResource Rec2}" Grid.Row="4" Grid.Column="2"/>

@@ -38,6 +38,7 @@
         </Grid.Resources>
 
         <Frame Grid.Column="4" Grid.ColumnSpan="3" Grid.Row="4" Grid.RowSpan="6" x:Name="Frame" Style="{StaticResource NoNavigationFrameStyle}"/>
+        <Rectangle Grid.Column="3" Grid.Row="0" Grid.RowSpan="10" HorizontalAlignment="Left" Width="5" Fill="#000" Opacity="0.06"/>
         <Rectangle Fill="#F8C5B4" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.RowSpan="10" Opacity="0.5"/>
         <Rectangle Fill="White" Grid.Row="4" Grid.Column="8" Grid.RowSpan="5" />
         <Rectangle Fill="White" Grid.Row="2" Grid.Column="4"/>
